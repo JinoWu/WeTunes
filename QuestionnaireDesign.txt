@@ -4,15 +4,21 @@
 
 ----------------Jinglong------------------
 
+0. You are currently _______?
+  a. Undergrad student
+  b. Grad student
+  c. Employee
+  d. Others
+
 1. Sex:   a. Male   b. Female
 
 2. Age:   [  ]
 
 3. How often do you listen music by smartphone?
-  1. almost never 2. rarely 3. by weeks 4. almost by everyday
+  1. almost never 2. rarely 3. by every week 4. almost by everyday
 
-4. How oftern do you have a party?
-  1. almost never 2. rarely 3. by months 4. by weeks 5. almost by everyday
+4. How often do you have a party?
+  1. almost never 2. rarely 3. by every month 4. by every week 5. almost by everyday
   
 5. Would you like to have a party with music (enjoy music with your friends) ?
   a. yes  b. no  c. it depends
