@@ -1,0 +1,549 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		72874A951DB1BE3F00949BC6 /* MusicPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72874A941DB1BE3F00949BC6 /* MusicPlayerViewController.swift */; };
+		72874A971DB1C31E00949BC6 /* HolderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72874A961DB1C31E00949BC6 /* HolderViewController.swift */; };
+		72874A991DB1C36200949BC6 /* GusetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72874A981DB1C36200949BC6 /* GusetViewController.swift */; };
+		72C9D4681DB1B5010029AEB7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C9D4671DB1B5010029AEB7 /* AppDelegate.swift */; };
+		72C9D46A1DB1B5010029AEB7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C9D4691DB1B5010029AEB7 /* ViewController.swift */; };
+		72C9D46D1DB1B5010029AEB7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 72C9D46B1DB1B5010029AEB7 /* Main.storyboard */; };
+		72C9D46F1DB1B5010029AEB7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 72C9D46E1DB1B5010029AEB7 /* Assets.xcassets */; };
+		72C9D4721DB1B5010029AEB7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 72C9D4701DB1B5010029AEB7 /* LaunchScreen.storyboard */; };
+		72C9D47D1DB1B5020029AEB7 /* WeTunesProtpTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C9D47C1DB1B5020029AEB7 /* WeTunesProtpTests.swift */; };
+		72C9D4881DB1B5020029AEB7 /* WeTunesProtpUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C9D4871DB1B5020029AEB7 /* WeTunesProtpUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		72C9D4791DB1B5020029AEB7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 72C9D45C1DB1B5010029AEB7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 72C9D4631DB1B5010029AEB7;
+			remoteInfo = WeTunesProtp;
+		};
+		72C9D4841DB1B5020029AEB7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 72C9D45C1DB1B5010029AEB7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 72C9D4631DB1B5010029AEB7;
+			remoteInfo = WeTunesProtp;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		72874A941DB1BE3F00949BC6 /* MusicPlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicPlayerViewController.swift; sourceTree = "<group>"; };
+		72874A961DB1C31E00949BC6 /* HolderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HolderViewController.swift; sourceTree = "<group>"; };
+		72874A981DB1C36200949BC6 /* GusetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GusetViewController.swift; sourceTree = "<group>"; };
+		72C9D4641DB1B5010029AEB7 /* WeTunesProtp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeTunesProtp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		72C9D4671DB1B5010029AEB7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		72C9D4691DB1B5010029AEB7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		72C9D46C1DB1B5010029AEB7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		72C9D46E1DB1B5010029AEB7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		72C9D4711DB1B5010029AEB7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		72C9D4731DB1B5010029AEB7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		72C9D4781DB1B5020029AEB7 /* WeTunesProtpTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WeTunesProtpTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		72C9D47C1DB1B5020029AEB7 /* WeTunesProtpTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeTunesProtpTests.swift; sourceTree = "<group>"; };
+		72C9D47E1DB1B5020029AEB7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		72C9D4831DB1B5020029AEB7 /* WeTunesProtpUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WeTunesProtpUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		72C9D4871DB1B5020029AEB7 /* WeTunesProtpUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeTunesProtpUITests.swift; sourceTree = "<group>"; };
+		72C9D4891DB1B5020029AEB7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		72C9D4951DB1B65D0029AEB7 /* WeTunesProtp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "WeTunesProtp-Bridging-Header.h"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		72C9D4611DB1B5010029AEB7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		72C9D4751DB1B5020029AEB7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		72C9D4801DB1B5020029AEB7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		72C9D45B1DB1B5010029AEB7 = {
+			isa = PBXGroup;
+			children = (
+				72C9D4661DB1B5010029AEB7 /* WeTunesProtp */,
+				72C9D47B1DB1B5020029AEB7 /* WeTunesProtpTests */,
+				72C9D4861DB1B5020029AEB7 /* WeTunesProtpUITests */,
+				72C9D4651DB1B5010029AEB7 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		72C9D4651DB1B5010029AEB7 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				72C9D4641DB1B5010029AEB7 /* WeTunesProtp.app */,
+				72C9D4781DB1B5020029AEB7 /* WeTunesProtpTests.xctest */,
+				72C9D4831DB1B5020029AEB7 /* WeTunesProtpUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		72C9D4661DB1B5010029AEB7 /* WeTunesProtp */ = {
+			isa = PBXGroup;
+			children = (
+				72C9D4671DB1B5010029AEB7 /* AppDelegate.swift */,
+				72C9D4691DB1B5010029AEB7 /* ViewController.swift */,
+				72C9D46B1DB1B5010029AEB7 /* Main.storyboard */,
+				72C9D46E1DB1B5010029AEB7 /* Assets.xcassets */,
+				72C9D4701DB1B5010029AEB7 /* LaunchScreen.storyboard */,
+				72874A961DB1C31E00949BC6 /* HolderViewController.swift */,
+				72874A941DB1BE3F00949BC6 /* MusicPlayerViewController.swift */,
+				72C9D4731DB1B5010029AEB7 /* Info.plist */,
+				72874A981DB1C36200949BC6 /* GusetViewController.swift */,
+				72C9D4951DB1B65D0029AEB7 /* WeTunesProtp-Bridging-Header.h */,
+			);
+			path = WeTunesProtp;
+			sourceTree = "<group>";
+		};
+		72C9D47B1DB1B5020029AEB7 /* WeTunesProtpTests */ = {
+			isa = PBXGroup;
+			children = (
+				72C9D47C1DB1B5020029AEB7 /* WeTunesProtpTests.swift */,
+				72C9D47E1DB1B5020029AEB7 /* Info.plist */,
+			);
+			path = WeTunesProtpTests;
+			sourceTree = "<group>";
+		};
+		72C9D4861DB1B5020029AEB7 /* WeTunesProtpUITests */ = {
+			isa = PBXGroup;
+			children = (
+				72C9D4871DB1B5020029AEB7 /* WeTunesProtpUITests.swift */,
+				72C9D4891DB1B5020029AEB7 /* Info.plist */,
+			);
+			path = WeTunesProtpUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		72C9D4631DB1B5010029AEB7 /* WeTunesProtp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 72C9D48C1DB1B5020029AEB7 /* Build configuration list for PBXNativeTarget "WeTunesProtp" */;
+			buildPhases = (
+				72C9D4601DB1B5010029AEB7 /* Sources */,
+				72C9D4611DB1B5010029AEB7 /* Frameworks */,
+				72C9D4621DB1B5010029AEB7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = WeTunesProtp;
+			productName = WeTunesProtp;
+			productReference = 72C9D4641DB1B5010029AEB7 /* WeTunesProtp.app */;
+			productType = "com.apple.product-type.application";
+		};
+		72C9D4771DB1B5020029AEB7 /* WeTunesProtpTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 72C9D48F1DB1B5020029AEB7 /* Build configuration list for PBXNativeTarget "WeTunesProtpTests" */;
+			buildPhases = (
+				72C9D4741DB1B5020029AEB7 /* Sources */,
+				72C9D4751DB1B5020029AEB7 /* Frameworks */,
+				72C9D4761DB1B5020029AEB7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				72C9D47A1DB1B5020029AEB7 /* PBXTargetDependency */,
+			);
+			name = WeTunesProtpTests;
+			productName = WeTunesProtpTests;
+			productReference = 72C9D4781DB1B5020029AEB7 /* WeTunesProtpTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		72C9D4821DB1B5020029AEB7 /* WeTunesProtpUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 72C9D4921DB1B5020029AEB7 /* Build configuration list for PBXNativeTarget "WeTunesProtpUITests" */;
+			buildPhases = (
+				72C9D47F1DB1B5020029AEB7 /* Sources */,
+				72C9D4801DB1B5020029AEB7 /* Frameworks */,
+				72C9D4811DB1B5020029AEB7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				72C9D4851DB1B5020029AEB7 /* PBXTargetDependency */,
+			);
+			name = WeTunesProtpUITests;
+			productName = WeTunesProtpUITests;
+			productReference = 72C9D4831DB1B5020029AEB7 /* WeTunesProtpUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		72C9D45C1DB1B5010029AEB7 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0800;
+				LastUpgradeCheck = 0800;
+				ORGANIZATIONNAME = "Jino Wu";
+				TargetAttributes = {
+					72C9D4631DB1B5010029AEB7 = {
+						CreatedOnToolsVersion = 8.0;
+						LastSwiftMigration = 0800;
+						ProvisioningStyle = Automatic;
+					};
+					72C9D4771DB1B5020029AEB7 = {
+						CreatedOnToolsVersion = 8.0;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 72C9D4631DB1B5010029AEB7;
+					};
+					72C9D4821DB1B5020029AEB7 = {
+						CreatedOnToolsVersion = 8.0;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 72C9D4631DB1B5010029AEB7;
+					};
+				};
+			};
+			buildConfigurationList = 72C9D45F1DB1B5010029AEB7 /* Build configuration list for PBXProject "WeTunesProtp" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 72C9D45B1DB1B5010029AEB7;
+			productRefGroup = 72C9D4651DB1B5010029AEB7 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				72C9D4631DB1B5010029AEB7 /* WeTunesProtp */,
+				72C9D4771DB1B5020029AEB7 /* WeTunesProtpTests */,
+				72C9D4821DB1B5020029AEB7 /* WeTunesProtpUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		72C9D4621DB1B5010029AEB7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				72C9D4721DB1B5010029AEB7 /* LaunchScreen.storyboard in Resources */,
+				72C9D46F1DB1B5010029AEB7 /* Assets.xcassets in Resources */,
+				72C9D46D1DB1B5010029AEB7 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		72C9D4761DB1B5020029AEB7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		72C9D4811DB1B5020029AEB7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		72C9D4601DB1B5010029AEB7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				72874A991DB1C36200949BC6 /* GusetViewController.swift in Sources */,
+				72C9D46A1DB1B5010029AEB7 /* ViewController.swift in Sources */,
+				72C9D4681DB1B5010029AEB7 /* AppDelegate.swift in Sources */,
+				72874A971DB1C31E00949BC6 /* HolderViewController.swift in Sources */,
+				72874A951DB1BE3F00949BC6 /* MusicPlayerViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		72C9D4741DB1B5020029AEB7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				72C9D47D1DB1B5020029AEB7 /* WeTunesProtpTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		72C9D47F1DB1B5020029AEB7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				72C9D4881DB1B5020029AEB7 /* WeTunesProtpUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		72C9D47A1DB1B5020029AEB7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 72C9D4631DB1B5010029AEB7 /* WeTunesProtp */;
+			targetProxy = 72C9D4791DB1B5020029AEB7 /* PBXContainerItemProxy */;
+		};
+		72C9D4851DB1B5020029AEB7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 72C9D4631DB1B5010029AEB7 /* WeTunesProtp */;
+			targetProxy = 72C9D4841DB1B5020029AEB7 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		72C9D46B1DB1B5010029AEB7 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				72C9D46C1DB1B5010029AEB7 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		72C9D4701DB1B5010029AEB7 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				72C9D4711DB1B5010029AEB7 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		72C9D48A1DB1B5020029AEB7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		72C9D48B1DB1B5020029AEB7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		72C9D48D1DB1B5020029AEB7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				INFOPLIST_FILE = WeTunesProtp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = test1.WeTunesProtp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "WeTunesProtp/WeTunesProtp-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		72C9D48E1DB1B5020029AEB7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				INFOPLIST_FILE = WeTunesProtp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = test1.WeTunesProtp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "WeTunesProtp/WeTunesProtp-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		72C9D4901DB1B5020029AEB7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = WeTunesProtpTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = test1.WeTunesProtpTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WeTunesProtp.app/WeTunesProtp";
+			};
+			name = Debug;
+		};
+		72C9D4911DB1B5020029AEB7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = WeTunesProtpTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = test1.WeTunesProtpTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WeTunesProtp.app/WeTunesProtp";
+			};
+			name = Release;
+		};
+		72C9D4931DB1B5020029AEB7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				INFOPLIST_FILE = WeTunesProtpUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = test1.WeTunesProtpUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = WeTunesProtp;
+			};
+			name = Debug;
+		};
+		72C9D4941DB1B5020029AEB7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				INFOPLIST_FILE = WeTunesProtpUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = test1.WeTunesProtpUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = WeTunesProtp;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		72C9D45F1DB1B5010029AEB7 /* Build configuration list for PBXProject "WeTunesProtp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				72C9D48A1DB1B5020029AEB7 /* Debug */,
+				72C9D48B1DB1B5020029AEB7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		72C9D48C1DB1B5020029AEB7 /* Build configuration list for PBXNativeTarget "WeTunesProtp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				72C9D48D1DB1B5020029AEB7 /* Debug */,
+				72C9D48E1DB1B5020029AEB7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		72C9D48F1DB1B5020029AEB7 /* Build configuration list for PBXNativeTarget "WeTunesProtpTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				72C9D4901DB1B5020029AEB7 /* Debug */,
+				72C9D4911DB1B5020029AEB7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		72C9D4921DB1B5020029AEB7 /* Build configuration list for PBXNativeTarget "WeTunesProtpUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				72C9D4931DB1B5020029AEB7 /* Debug */,
+				72C9D4941DB1B5020029AEB7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 72C9D45C1DB1B5010029AEB7 /* Project object */;
+}
