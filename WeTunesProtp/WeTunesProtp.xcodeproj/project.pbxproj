@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		18240C621DD52BE6008CDBA2 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18240C611DD52BE6008CDBA2 /* TableViewController.swift */; };
+		18240C641DD59808008CDBA2 /* SongsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18240C631DD59808008CDBA2 /* SongsTableViewCell.swift */; };
 		7226A6A81DCC0B8500EFDDF6 /* 15.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7226A6A71DCC0B8500EFDDF6 /* 15.mp3 */; };
 		72874A951DB1BE3F00949BC6 /* MusicPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72874A941DB1BE3F00949BC6 /* MusicPlayerViewController.swift */; };
 		72874A971DB1C31E00949BC6 /* HolderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72874A961DB1C31E00949BC6 /* HolderViewController.swift */; };
@@ -38,6 +40,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		18240C611DD52BE6008CDBA2 /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
+		18240C631DD59808008CDBA2 /* SongsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SongsTableViewCell.swift; sourceTree = "<group>"; };
 		7226A6A71DCC0B8500EFDDF6 /* 15.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = 15.mp3; path = ../15.mp3; sourceTree = "<group>"; };
 		72874A941DB1BE3F00949BC6 /* MusicPlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicPlayerViewController.swift; sourceTree = "<group>"; };
 		72874A961DB1C31E00949BC6 /* HolderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HolderViewController.swift; sourceTree = "<group>"; };
@@ -108,14 +112,16 @@
 			children = (
 				72C9D4671DB1B5010029AEB7 /* AppDelegate.swift */,
 				72C9D4691DB1B5010029AEB7 /* ViewController.swift */,
+				72874A961DB1C31E00949BC6 /* HolderViewController.swift */,
+				18240C631DD59808008CDBA2 /* SongsTableViewCell.swift */,
+				72874A941DB1BE3F00949BC6 /* MusicPlayerViewController.swift */,
+				18240C611DD52BE6008CDBA2 /* TableViewController.swift */,
+				72874A981DB1C36200949BC6 /* GusetViewController.swift */,
 				72C9D46B1DB1B5010029AEB7 /* Main.storyboard */,
 				72C9D46E1DB1B5010029AEB7 /* Assets.xcassets */,
 				72C9D4701DB1B5010029AEB7 /* LaunchScreen.storyboard */,
-				72874A961DB1C31E00949BC6 /* HolderViewController.swift */,
-				72874A941DB1BE3F00949BC6 /* MusicPlayerViewController.swift */,
 				7226A6A71DCC0B8500EFDDF6 /* 15.mp3 */,
 				72C9D4731DB1B5010029AEB7 /* Info.plist */,
-				72874A981DB1C36200949BC6 /* GusetViewController.swift */,
 				72C9D4951DB1B65D0029AEB7 /* WeTunesProtp-Bridging-Header.h */,
 			);
 			path = WeTunesProtp;
@@ -202,11 +208,12 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0800;
-				LastUpgradeCheck = 0800;
+				LastUpgradeCheck = 0810;
 				ORGANIZATIONNAME = "Jino Wu";
 				TargetAttributes = {
 					72C9D4631DB1B5010029AEB7 = {
 						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = YGSN6HN29A;
 						LastSwiftMigration = 0800;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
@@ -281,6 +288,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				72874A991DB1C36200949BC6 /* GusetViewController.swift in Sources */,
+				18240C621DD52BE6008CDBA2 /* TableViewController.swift in Sources */,
+				18240C641DD59808008CDBA2 /* SongsTableViewCell.swift in Sources */,
 				72C9D46A1DB1B5010029AEB7 /* ViewController.swift in Sources */,
 				72C9D4681DB1B5010029AEB7 /* AppDelegate.swift in Sources */,
 				72874A971DB1C31E00949BC6 /* HolderViewController.swift in Sources */,
@@ -357,6 +366,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -406,6 +416,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -435,9 +446,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				DEVELOPMENT_TEAM = YGSN6HN29A;
 				INFOPLIST_FILE = WeTunesProtp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = test1.WeTunesProtp;
+				PRODUCT_BUNDLE_IDENTIFIER = HaoyuLin.WeTunesProtp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "WeTunesProtp/WeTunesProtp-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -450,9 +462,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				DEVELOPMENT_TEAM = YGSN6HN29A;
 				INFOPLIST_FILE = WeTunesProtp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = test1.WeTunesProtp;
+				PRODUCT_BUNDLE_IDENTIFIER = HaoyuLin.WeTunesProtp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "WeTunesProtp/WeTunesProtp-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
