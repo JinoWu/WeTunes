@@ -7,29 +7,36 @@
 //
 
 import UIKit
+import QuartzCore
 import AVFoundation
 import MediaPlayer
 
-class MusicPlayerViewController: UIViewController {
+class MusicPlayerViewController: UIViewController,MPMediaPickerControllerDelegate {
+	// MARK: - Variables
 //	var myMusicPlayer = AVAudioPlayer()
 	let mp = MPMusicPlayerController.systemMusicPlayer()
 	var timer = Timer()
+	var trackElapsed:TimeInterval!
+	var mediapicker1: MPMediaPickerController!
+	var isSliderTouching = false
 	@IBOutlet var imageAlbum: UIImageView!
 	@IBOutlet weak var labelTrackArtistAlbum: UILabel!
 	@IBOutlet weak var labelElapsed: UILabel!
 	@IBOutlet weak var labelRemaining: UILabel!
-	var trackElapsed:TimeInterval!
-	var selectedSongs: MPMediaItemCollection!
-//	var songs = [MPMediaItem]()
-	
-	
+	@IBOutlet var sliderTime: UISlider!
+	@IBAction func sliderTimeChanged(_ sender: Any) {
+		mp.currentPlaybackTime = TimeInterval(sliderTime.value)
+		isSliderTouching = false
+	}
+	@IBAction func sliderTimeTouchDown(_ sender: Any) {
+		isSliderTouching = true
+	}
     @IBAction func Disconnect(_ sender: AnyObject) {
-        // go back to the previous view controller
         _ = self.navigationController?.popViewController(animated: true)
-        
     }
-    
-    
+	@IBAction func buttonPickMusic(_ sender: Any) {
+		self.present(mediapicker1, animated: true, completion: nil)
+	}
     @IBOutlet weak var playOrPauseOutLet: UIButton!
     @IBAction func playOrPause(_ sender: Any) {
 		if mp.playbackState == .paused || mp.playbackState == .stopped {
@@ -57,25 +64,40 @@ class MusicPlayerViewController: UIViewController {
 	@IBAction func buttonNext(_ sender: Any) {
 		mp.skipToNextItem()
 	}
-	
+	// MARK: - Functions
     override func viewDidLoad() {
         super.viewDidLoad()
-		if selectedSongs != nil {
-			mp.setQueue(with: selectedSongs)
-			mp.prepareToPlay()
-			timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(timerFired), userInfo: nil, repeats: true)
-			timer.tolerance = 0.1
-			mp.beginGeneratingPlaybackNotifications()
-			NotificationCenter.default.addObserver(self, selector: #selector(updateNowPlayingInfo), name: .MPMusicPlayerControllerNowPlayingItemDidChange, object: nil)
+		let mediaPicker: MPMediaPickerController = MPMediaPickerController.self(mediaTypes: .music)
+		mediaPicker.allowsPickingMultipleItems = true
+		mediaPicker.delegate = self
+		mediapicker1 = mediaPicker
+		if MPMusicPlayerController.systemMusicPlayer().nowPlayingItem == nil {
+			self.present(mediapicker1, animated: false, completion: nil)
 		}
 		
 		
+//		mp.setQueue(with: selectedSongs)
+		mp.prepareToPlay()
+		timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(timerFired), userInfo: nil, repeats: true)
+		timer.tolerance = 0.1
+		mp.beginGeneratingPlaybackNotifications()
+		NotificationCenter.default.addObserver(self, selector: #selector(updateNowPlayingInfo), name: .MPMusicPlayerControllerNowPlayingItemDidChange, object: nil)
 		
 		
-
+		imageAlbum.layer.shadowColor = UIColor.darkGray.cgColor
+		imageAlbum.layer.shadowOffset = CGSize.zero
+		imageAlbum.layer.shadowOpacity = 0.8;
+		imageAlbum.layer.shadowRadius = 15.0;
+//		imageAlbum.layer.shouldRasterize = true
+//		imageAlbum.layer.shadowPath = UIBezierPath(rect: imageAlbum.bounds).cgPath
+		imageAlbum.clipsToBounds = false;
+//		imageAlbum.layer.cornerRadius = 10
+		if mp.playbackState == .paused || mp.playbackState == .stopped {
+			playOrPauseOutLet.setBackgroundImage(UIImage(named:"Play"), for: UIControlState.normal)
+		} else if mp.playbackState == .playing {
+			playOrPauseOutLet.setBackgroundImage(UIImage(named:"Pause"), for: UIControlState.normal)
+		}
 		
-        playOrPauseOutLet.setBackgroundImage(UIImage(named:"Play"), for: UIControlState.normal)
-        
         
 //        do{
 //            myMusicPlayer = try AVAudioPlayer(contentsOf: URL.init(fileURLWithPath: Bundle.main.path(forResource: "15", ofType: "mp3")!))
@@ -111,15 +133,35 @@ class MusicPlayerViewController: UIViewController {
 			let trackRemainingMinutes = trackRemaining / 60
 			let trackRemainingSeconds = trackRemaining % 60
 			if trackRemainingSeconds < 10 {
-				labelRemaining.text = "Remaining: \(trackRemainingMinutes):0\(trackRemainingSeconds)"
+				labelRemaining.text = "-\(trackRemainingMinutes):0\(trackRemainingSeconds)"
 			} else {
-				labelRemaining.text = "Remaining: \(trackRemainingMinutes):\(trackRemainingSeconds)"
+				labelRemaining.text = "-\(trackRemainingMinutes):\(trackRemainingSeconds)"
+			}
+			sliderTime.maximumValue = Float(trackDuration)
+			if isSliderTouching == false {
+				sliderTime.value = Float(trackElapsed)
 			}
 		}
 	}
 	func updateNowPlayingInfo(){
 		timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(timerFired), userInfo: nil, repeats: true)
 		timer.tolerance = 0.1
+	}
+	
+	func mediaPicker(_ mediaPicker: MPMediaPickerController, didPickMediaItems mediaItemCollection: MPMediaItemCollection) {
+		self.dismiss(animated: true, completion: nil)
+		let selectedSongs = mediaItemCollection
+		mp.setQueue(with: selectedSongs)
+		mp.play()
+		playOrPauseOutLet.setBackgroundImage(UIImage(named:"Pause"), for: UIControlState.normal)
+	}
+	func mediaPickerDidCancel(_ mediaPicker: MPMediaPickerController) {
+		self.dismiss(animated: true, completion: nil)
+		if mp.playbackState == .paused || mp.playbackState == .stopped {
+			playOrPauseOutLet.setBackgroundImage(UIImage(named:"Play"), for: UIControlState.normal)
+		} else if mp.playbackState == .playing {
+			playOrPauseOutLet.setBackgroundImage(UIImage(named:"Pause"), for: UIControlState.normal)
+		}
 	}
     /*
     // MARK: - Navigation

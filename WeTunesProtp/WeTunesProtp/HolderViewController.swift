@@ -11,15 +11,25 @@ import MediaPlayer
 
 class HolderViewController: UIViewController,MPMediaPickerControllerDelegate,UITableViewDelegate,UITableViewDataSource {
 	@IBOutlet weak var tableView: UITableView!
-	var selectedSongs: MPMediaItemCollection!
+	var selectedSongs = [MPMediaItem]()
+	var mpcollection:MPMediaItemCollection!
 	var mediapicker1: MPMediaPickerController!
+	let mp = MPMusicPlayerController.applicationMusicPlayer()
+	@IBAction func buttonAddSongs(_ sender: Any) {
+		self.present(mediapicker1, animated: true, completion: nil)
+	}
+	
+	
+	
+	
     override func viewDidLoad() {
         super.viewDidLoad()
-		let mediaPicker = MPMediaPickerController(mediaTypes: .anyAudio)
+		let mediaPicker: MPMediaPickerController = MPMediaPickerController.self(mediaTypes: .music)
+		mediaPicker.allowsPickingMultipleItems = true
 		mediaPicker.delegate = self
-		mediaPicker.allowsPickingMultipleItems=true
 		mediapicker1 = mediaPicker
-		present(mediapicker1, animated: true, completion: nil)
+		
+//		self.present(mediapicker1, animated: false, completion: nil)
 		
 		tableView.delegate = self
 		tableView.rowHeight = 44
@@ -35,7 +45,7 @@ class HolderViewController: UIViewController,MPMediaPickerControllerDelegate,UIT
 	}
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		let cell = tableView.dequeueReusableCell(withIdentifier: "song", for: indexPath) as! SongsTableViewCell
-		let song = selectedSongs.items[indexPath.row]
+		let song = selectedSongs[indexPath.row]
 		cell.imageAlbum.image = song.artwork?.image(at: cell.imageAlbum.bounds.size)
 		cell.trackName.text = song.title!
 		cell.trackArtist.text = song.artist!
@@ -52,9 +62,13 @@ class HolderViewController: UIViewController,MPMediaPickerControllerDelegate,UIT
 //		tableView.reloadData()
 	}
 	
-	func mediaPicker(mediaPicker: MPMediaPickerController, didPickMediaItems mediaItemCollection: MPMediaItemCollection) {
+	private func mediaPicker(mediaPicker: MPMediaPickerController, didPickMediaItems mediaItemCollection: MPMediaItemCollection) {
 		self.dismiss(animated: true, completion: nil)
-		selectedSongs = mediaItemCollection
+		mp.setQueue(with: mediaItemCollection)
+		for song in mediaItemCollection.items {
+			selectedSongs.append(song)
+		}
+		self.mpcollection = mediaItemCollection
 		self.tableView.reloadData()
 //		for a in selectedSongs.items {
 //			
@@ -72,7 +86,7 @@ class HolderViewController: UIViewController,MPMediaPickerControllerDelegate,UIT
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 		if segue.identifier == "StartSharing" {
 			let vc = segue.destination as! MusicPlayerViewController
-			vc.selectedSongs = self.selectedSongs
+//			vc.selectedSongs = self.selectedSongs
 //			for song in self.selectedSongs.items {
 //				vc.songs.append(song)
 //			}
