@@ -14,6 +14,7 @@ import MediaPlayer
 class MusicPlayerViewController: UIViewController,MPMediaPickerControllerDelegate {
 	// MARK: - Variables
 //	var myMusicPlayer = AVAudioPlayer()
+	
 	let mp = MPMusicPlayerController.systemMusicPlayer()
 	var timer = Timer()
 	var trackElapsed:TimeInterval!
