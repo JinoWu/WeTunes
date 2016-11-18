@@ -1,8 +1,8 @@
 # WeTunes
 WeTunes, a music sharing app.
 
-# Simple UI
-Download "WeTunes-UI" folder, it's a Swift 3.0 project.
+# Prototype
+Download "WeTunesProtp" folder, it's a Swift 3.0 project. Currently we had build a music player accessing the iOS music library and had successfully established transfer connection between devices.
 
 # Questionnaire
 QuestionnaireDesign.txt
