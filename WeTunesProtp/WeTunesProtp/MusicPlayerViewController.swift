@@ -47,13 +47,16 @@ class MusicPlayerViewController: UIViewController {
     @IBAction func playOrPause(_ sender: Any) {
 		if playerPrepared {
 			if myMusicPlayer.isPlaying{
+				musicService.sendState(state: "pause")
 				myMusicPlayer.pause()
 				playOrPauseOutLet.setBackgroundImage(UIImage(named:"Play"), for: UIControlState.normal)
 			}else{
+				musicService.sendState(state: "play")
 				myMusicPlayer.play()
 				playOrPauseOutLet.setBackgroundImage(UIImage(named:"Pause"), for: UIControlState.normal)
 			}
 		}
+		
     }
 	@IBAction func buttonPrevious(_ sender: Any) {
 //		if trackElapsed < 3 {
@@ -151,6 +154,8 @@ class MusicPlayerViewController: UIViewController {
 		timer.tolerance = 0.1
 	}
 	@IBAction func SelectMusicToMusicPlayerViewController(segue:UIStoryboardSegue) {
+		self.isHolderMode=true
+		musicService.transferingStatus.removeAll()
 		if let songPickerViewController = segue.source as? SongPickerTableViewController,
 			let songIndex = songPickerViewController.selectedSongIndex {
 			self.songItem = songPickerViewController.songItems[songIndex]
@@ -184,11 +189,12 @@ class MusicPlayerViewController: UIViewController {
 extension MusicPlayerViewController: MusicServiceManagerDelegate {
 	func connectedDevicesChanged(manager: MusicServiceManager, connectedDevices: [String]) {
 		OperationQueue.main.addOperation { () -> Void in
-			self.labelNumberOfDevicesConnected.text = "\(connectedDevices.count) devices connected"
+			self.labelNumberOfDevicesConnected.text = "\(self.musicService.session.connectedPeers.count) devices connected"
 		}
 		
 	}
 	func dataChanged(manager: MusicServiceManager, data: Data) {
+		isHolderMode=false
 		do{
 //            myMusicPlayer = try AVAudioPlayer(contentsOf: URL.init(fileURLWithPath: Bundle.main.path(forResource: "15", ofType: "mp3")!))
 			self.song = musicService.convertDataToAVAsset(data: data)!.0
@@ -200,6 +206,22 @@ extension MusicPlayerViewController: MusicServiceManagerDelegate {
 			try myAudioSession.setCategory(AVAudioSessionCategoryPlayback)
 		}catch let error {
 			print(error)
+		}
+		musicService.sendState(state: "ready")
+	}
+	func stateReceived(manager: MusicServiceManager, state: String) {
+		if state == "ready" && isHolderMode && musicService.transferingStatus.count == musicService.session.connectedPeers.count{
+			musicService.sendState(state: "play")
+			self.myMusicPlayer.play()
+			self.playOrPauseOutLet.setBackgroundImage(UIImage(named:"Pause"), for: UIControlState.normal)
+		}
+		if state == "play" && playerPrepared{
+			self.myMusicPlayer.play()
+			self.playOrPauseOutLet.setBackgroundImage(UIImage(named:"Pause"), for: UIControlState.normal)
+		}
+		if state == "pause" && playerPrepared{
+			self.myMusicPlayer.pause()
+			self.playOrPauseOutLet.setBackgroundImage(UIImage(named:"Play"), for: UIControlState.normal)
 		}
 	}
 	func streamChanged(manager: MusicServiceManager, _ aStream: Stream, handle eventCode: Stream.Event) {

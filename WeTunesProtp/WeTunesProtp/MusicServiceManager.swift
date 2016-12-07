@@ -14,6 +14,7 @@ protocol MusicServiceManagerDelegate {
 	func connectedDevicesChanged(manager : MusicServiceManager, connectedDevices: [String])
 	func dataChanged(manager : MusicServiceManager, data: Data)
 	func streamChanged(manager: MusicServiceManager, _ aStream: Stream, handle eventCode: Stream.Event )
+	func stateReceived(manager: MusicServiceManager, state: String)
 }
 
 
@@ -30,6 +31,7 @@ class MusicServiceManager: NSObject {
 		session.delegate = self
 		return session
 	}()
+	var transferingStatus = [Bool]()
 // MARK: - Functions
 	override init() {
 		serviceAdvertiser = MCNearbyServiceAdvertiser(peer: myPeerId, discoveryInfo: nil, serviceType: MusicServiceType)
@@ -54,6 +56,17 @@ class MusicServiceManager: NSObject {
 		if session.connectedPeers.count > 0 {
 			do {
 				try session.send(data, toPeers: self.session.connectedPeers, with: MCSessionSendDataMode.reliable)
+			} catch let error {
+				print(error.localizedDescription)
+			}
+		}
+	}
+	func sendState(state : String) {
+		print("sendState\(state)")
+		let data = state.data(using: .utf8)!
+		if session.connectedPeers.count > 0 {
+			do {
+				try session.send(data, toPeers: session.connectedPeers, with: .unreliable)
 			} catch let error {
 				print(error.localizedDescription)
 			}
@@ -100,6 +113,7 @@ class MusicServiceManager: NSObject {
 		}
 	}
 	
+
 	
 	private func sendingMusicStream(item: MPMediaItem) {
 		guard let url = item.assetURL else {
@@ -233,10 +247,19 @@ extension MusicServiceManager: MCSessionDelegate {
 		self.delegate?.connectedDevicesChanged(manager: self, connectedDevices: session.connectedPeers.map({$0.displayName}))
 	}
 	func session(_ session: MCSession, didReceive data: Data, fromPeer peerID: MCPeerID) {
-		//receive data here
 		print("didReceiveData: \(data.count) bytes")
-//		let str = NSString(data: data, encoding: NSUTF8StringEncoding) as! String
-		self.delegate?.dataChanged(manager: self, data: data)
+		if data.count < 1000 && data.count > 0{
+			if let str = String(data: data, encoding: .utf8) {
+				if str == "ready" {
+					transferingStatus.append(true)
+				}
+				self.delegate?.stateReceived(manager: self, state: str)
+			}
+		}
+		if data.count >= 1000 {
+			self.transferingStatus.removeAll()
+			self.delegate?.dataChanged(manager: self, data: data)
+		}
 	}
 	func session(_ session: MCSession, didReceive stream: InputStream, withName streamName: String, fromPeer peerID: MCPeerID) {
 		print("didReceiveStream from \(peerID)")
