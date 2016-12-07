@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		18240C621DD52BE6008CDBA2 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18240C611DD52BE6008CDBA2 /* TableViewController.swift */; };
 		18240C641DD59808008CDBA2 /* SongsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18240C631DD59808008CDBA2 /* SongsTableViewCell.swift */; };
 		185DA0F31DDA5DA30062F3E8 /* Advertiser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185DA0ED1DDA5DA30062F3E8 /* Advertiser.swift */; };
 		185DA0F41DDA5DA30062F3E8 /* Browser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185DA0EE1DDA5DA30062F3E8 /* Browser.swift */; };
@@ -15,6 +14,7 @@
 		185DA0F61DDA5DA30062F3E8 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185DA0F11DDA5DA30062F3E8 /* Session.swift */; };
 		185DA0F71DDA5DA30062F3E8 /* Transceiver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185DA0F21DDA5DA30062F3E8 /* Transceiver.swift */; };
 		185DA0FC1DDA785B0062F3E8 /* MusicServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185DA0FB1DDA785B0062F3E8 /* MusicServiceManager.swift */; };
+		18C314501DDE84F500196BC7 /* SongPickerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C3144F1DDE84F500196BC7 /* SongPickerTableViewController.swift */; };
 		7226A6A81DCC0B8500EFDDF6 /* 15.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7226A6A71DCC0B8500EFDDF6 /* 15.mp3 */; };
 		72874A951DB1BE3F00949BC6 /* MusicPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72874A941DB1BE3F00949BC6 /* MusicPlayerViewController.swift */; };
 		72874A971DB1C31E00949BC6 /* HolderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72874A961DB1C31E00949BC6 /* HolderViewController.swift */; };
@@ -46,7 +46,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		18240C611DD52BE6008CDBA2 /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		18240C631DD59808008CDBA2 /* SongsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SongsTableViewCell.swift; sourceTree = "<group>"; };
 		185DA0ED1DDA5DA30062F3E8 /* Advertiser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Advertiser.swift; sourceTree = "<group>"; };
 		185DA0EE1DDA5DA30062F3E8 /* Browser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Browser.swift; sourceTree = "<group>"; };
@@ -55,6 +54,7 @@
 		185DA0F11DDA5DA30062F3E8 /* Session.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		185DA0F21DDA5DA30062F3E8 /* Transceiver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Transceiver.swift; sourceTree = "<group>"; };
 		185DA0FB1DDA785B0062F3E8 /* MusicServiceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicServiceManager.swift; sourceTree = "<group>"; };
+		18C3144F1DDE84F500196BC7 /* SongPickerTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SongPickerTableViewController.swift; sourceTree = "<group>"; };
 		7226A6A71DCC0B8500EFDDF6 /* 15.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = 15.mp3; path = ../15.mp3; sourceTree = "<group>"; };
 		72874A941DB1BE3F00949BC6 /* MusicPlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicPlayerViewController.swift; sourceTree = "<group>"; };
 		72874A961DB1C31E00949BC6 /* HolderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HolderViewController.swift; sourceTree = "<group>"; };
@@ -142,9 +142,9 @@
 				72874A961DB1C31E00949BC6 /* HolderViewController.swift */,
 				185DA0FB1DDA785B0062F3E8 /* MusicServiceManager.swift */,
 				18240C631DD59808008CDBA2 /* SongsTableViewCell.swift */,
-				72874A941DB1BE3F00949BC6 /* MusicPlayerViewController.swift */,
-				18240C611DD52BE6008CDBA2 /* TableViewController.swift */,
 				72874A981DB1C36200949BC6 /* GusetViewController.swift */,
+				72874A941DB1BE3F00949BC6 /* MusicPlayerViewController.swift */,
+				18C3144F1DDE84F500196BC7 /* SongPickerTableViewController.swift */,
 				72C9D46B1DB1B5010029AEB7 /* Main.storyboard */,
 				72C9D46E1DB1B5010029AEB7 /* Assets.xcassets */,
 				72C9D4701DB1B5010029AEB7 /* LaunchScreen.storyboard */,
@@ -316,7 +316,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				72874A991DB1C36200949BC6 /* GusetViewController.swift in Sources */,
-				18240C621DD52BE6008CDBA2 /* TableViewController.swift in Sources */,
 				185DA0F41DDA5DA30062F3E8 /* Browser.swift in Sources */,
 				18240C641DD59808008CDBA2 /* SongsTableViewCell.swift in Sources */,
 				72C9D46A1DB1B5010029AEB7 /* ViewController.swift in Sources */,
@@ -325,6 +324,7 @@
 				185DA0F71DDA5DA30062F3E8 /* Transceiver.swift in Sources */,
 				185DA0F51DDA5DA30062F3E8 /* PeerKit.swift in Sources */,
 				185DA0F61DDA5DA30062F3E8 /* Session.swift in Sources */,
+				18C314501DDE84F500196BC7 /* SongPickerTableViewController.swift in Sources */,
 				72C9D4681DB1B5010029AEB7 /* AppDelegate.swift in Sources */,
 				72874A971DB1C31E00949BC6 /* HolderViewController.swift in Sources */,
 				72874A951DB1BE3F00949BC6 /* MusicPlayerViewController.swift in Sources */,

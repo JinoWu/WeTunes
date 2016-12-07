@@ -85,7 +85,7 @@ class HolderViewController: UIViewController,MPMediaPickerControllerDelegate,UIT
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 		if segue.identifier == "StartSharing" {
-			let vc = segue.destination as! MusicPlayerViewController
+//			let vc = segue.destination as! MusicPlayerViewController
 //			vc.selectedSongs = self.selectedSongs
 //			for song in self.selectedSongs.items {
 //				vc.songs.append(song)
