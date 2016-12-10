@@ -10,11 +10,15 @@ import UIKit
 
 class GusetViewController: UIViewController {
 
+    @IBAction func joinButton(_ sender: Any) {
+        
+        
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        self.navigationItem.title = "Scanning Holders"
+        // self.navigationItem.title = "Scanning Holders"
     }
 
     override func didReceiveMemoryWarning() {
@@ -32,5 +36,10 @@ class GusetViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == "guestSegue") {
+            let svc = segue.destination as! MusicPlayerViewController;
+            svc.isGuest = true;
+        }
+    }
 }

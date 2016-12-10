@@ -12,6 +12,14 @@ import AVFoundation
 import MediaPlayer
 
 class MusicPlayerViewController: UIViewController {
+    // MARK: - Flags
+    var isHost = false
+    var isGuest = false
+    @IBOutlet weak var flagLabel: UILabel!
+    
+    @IBOutlet weak var devicesButton: UIButton!
+    @IBAction func devicesButton(_ sender: Any) {
+    }
 	// MARK: - Variables
 	var myMusicPlayer = AVAudioPlayer()
 	var playerPrepared = false
@@ -37,11 +45,19 @@ class MusicPlayerViewController: UIViewController {
 		isSliderTouching = true
 	}
     @IBAction func Disconnect(_ sender: AnyObject) {
-        _ = self.navigationController?.popViewController(animated: true)
+        
 		if playerPrepared {
 			myMusicPlayer.stop()
 		}
 		musicService.disconnect()
+        
+        if isHost {
+            // may need to kill the session
+            
+            performSegue(withIdentifier: "hostDisconnect", sender: self)
+        } else if isGuest{
+            performSegue(withIdentifier: "guestDisconnect", sender: self)
+        }
     }
     @IBOutlet weak var playOrPauseOutLet: UIButton!
     @IBAction func playOrPause(_ sender: Any) {
@@ -72,6 +88,13 @@ class MusicPlayerViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 		musicService.delegate = self
+        if (self.isHost) {
+            self.flagLabel.text = "This is a host !"
+        } else {
+            self.flagLabel.text = "This is a guest !"
+        }
+        self.devicesButton.setBackgroundImage(
+            UIImage(named:"Adervising")?.withRenderingMode(.alwaysOriginal), for: .normal)
 //		mp.setQueue(with: selectedSongs)
 //		mp.prepareToPlay()
 		timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(timerFired), userInfo: nil, repeats: true)
@@ -188,8 +211,17 @@ class MusicPlayerViewController: UIViewController {
 
 extension MusicPlayerViewController: MusicServiceManagerDelegate {
 	func connectedDevicesChanged(manager: MusicServiceManager, connectedDevices: [String]) {
+        
 		OperationQueue.main.addOperation { () -> Void in
-			self.labelNumberOfDevicesConnected.text = "\(self.musicService.session.connectedPeers.count) devices connected"
+            let connectedDevicesNum = self.musicService.session.connectedPeers.count
+			self.labelNumberOfDevicesConnected.text = "\(connectedDevicesNum)"
+            if connectedDevicesNum <= 0 {
+                self.devicesButton.setBackgroundImage(
+                    UIImage(named:"Adervising")?.withRenderingMode(.alwaysOriginal), for: .normal)
+            } else{
+                self.devicesButton.setBackgroundImage(
+                    UIImage(named:"Two Smartphones")?.withRenderingMode(.alwaysOriginal), for: .normal)
+            }
 		}
 		
 	}

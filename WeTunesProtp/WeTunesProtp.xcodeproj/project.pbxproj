@@ -11,6 +11,7 @@
 		185DA0FC1DDA785B0062F3E8 /* MusicServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185DA0FB1DDA785B0062F3E8 /* MusicServiceManager.swift */; };
 		18C314501DDE84F500196BC7 /* SongPickerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C3144F1DDE84F500196BC7 /* SongPickerTableViewController.swift */; };
 		7226A6A81DCC0B8500EFDDF6 /* 15.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7226A6A71DCC0B8500EFDDF6 /* 15.mp3 */; };
+		727AFD121DFC85630087508D /* ListofConnectedDevices.xib in Resources */ = {isa = PBXBuildFile; fileRef = 727AFD111DFC85630087508D /* ListofConnectedDevices.xib */; };
 		72874A951DB1BE3F00949BC6 /* MusicPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72874A941DB1BE3F00949BC6 /* MusicPlayerViewController.swift */; };
 		72874A971DB1C31E00949BC6 /* HolderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72874A961DB1C31E00949BC6 /* HolderViewController.swift */; };
 		72874A991DB1C36200949BC6 /* GusetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72874A981DB1C36200949BC6 /* GusetViewController.swift */; };
@@ -45,6 +46,8 @@
 		185DA0FB1DDA785B0062F3E8 /* MusicServiceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicServiceManager.swift; sourceTree = "<group>"; };
 		18C3144F1DDE84F500196BC7 /* SongPickerTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SongPickerTableViewController.swift; sourceTree = "<group>"; };
 		7226A6A71DCC0B8500EFDDF6 /* 15.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = 15.mp3; path = ../15.mp3; sourceTree = "<group>"; };
+		727AFD111DFC85630087508D /* ListofConnectedDevices.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ListofConnectedDevices.xib; sourceTree = "<group>"; };
+		727AFD131DFC9F0A0087508D /* WeTunesProtp-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WeTunesProtp-Bridging-Header.h"; sourceTree = "<group>"; };
 		72874A941DB1BE3F00949BC6 /* MusicPlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicPlayerViewController.swift; sourceTree = "<group>"; };
 		72874A961DB1C31E00949BC6 /* HolderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HolderViewController.swift; sourceTree = "<group>"; };
 		72874A981DB1C36200949BC6 /* GusetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GusetViewController.swift; sourceTree = "<group>"; };
@@ -61,7 +64,6 @@
 		72C9D4831DB1B5020029AEB7 /* WeTunesProtpUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WeTunesProtpUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		72C9D4871DB1B5020029AEB7 /* WeTunesProtpUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeTunesProtpUITests.swift; sourceTree = "<group>"; };
 		72C9D4891DB1B5020029AEB7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		72C9D4951DB1B65D0029AEB7 /* WeTunesProtp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "WeTunesProtp-Bridging-Header.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,7 +127,8 @@
 				72C9D4701DB1B5010029AEB7 /* LaunchScreen.storyboard */,
 				7226A6A71DCC0B8500EFDDF6 /* 15.mp3 */,
 				72C9D4731DB1B5010029AEB7 /* Info.plist */,
-				72C9D4951DB1B65D0029AEB7 /* WeTunesProtp-Bridging-Header.h */,
+				727AFD111DFC85630087508D /* ListofConnectedDevices.xib */,
+				727AFD131DFC9F0A0087508D /* WeTunesProtp-Bridging-Header.h */,
 			);
 			path = WeTunesProtp;
 			sourceTree = "<group>";
@@ -216,7 +219,7 @@
 				TargetAttributes = {
 					72C9D4631DB1B5010029AEB7 = {
 						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = YGSN6HN29A;
+						DevelopmentTeam = Q85S7XHQUX;
 						LastSwiftMigration = 0800;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
@@ -266,6 +269,7 @@
 				72C9D4721DB1B5010029AEB7 /* LaunchScreen.storyboard in Resources */,
 				72C9D46F1DB1B5010029AEB7 /* Assets.xcassets in Resources */,
 				72C9D46D1DB1B5010029AEB7 /* Main.storyboard in Resources */,
+				727AFD121DFC85630087508D /* ListofConnectedDevices.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -450,11 +454,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				DEVELOPMENT_TEAM = YGSN6HN29A;
+				DEVELOPMENT_TEAM = Q85S7XHQUX;
 				INFOPLIST_FILE = WeTunesProtp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = HaoyuLin.WeTunesProtp;
+				PRODUCT_BUNDLE_IDENTIFIER = JinoWu.WeTunesProtp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "WeTunesProtp/WeTunesProtp-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -467,11 +471,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				DEVELOPMENT_TEAM = YGSN6HN29A;
+				DEVELOPMENT_TEAM = Q85S7XHQUX;
 				INFOPLIST_FILE = WeTunesProtp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = HaoyuLin.WeTunesProtp;
+				PRODUCT_BUNDLE_IDENTIFIER = JinoWu.WeTunesProtp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "WeTunesProtp/WeTunesProtp-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
