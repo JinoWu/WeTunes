@@ -8,12 +8,17 @@
 
 import UIKit
 
-class GusetViewController: UIViewController {
+class GusetViewController: UIViewController, UITableViewDataSource, UITabBarDelegate {
 
 
+
+    @IBOutlet weak var tableView: UITableView!
+    
+    var name = ["Siddharth's Iphone","Jino's Ipad"]
+    var model = ["Iphone 7","Ipad Pro"]
+    var images = [UIImage(named: "iPhone_000000_100"),UIImage(named: "iPad_000000_100")]
+    
     @IBAction func joinButton(_ sender: Any) {
-        
-        
     }
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +34,21 @@ class GusetViewController: UIViewController {
     }
     
 
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return name.count;
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = self.tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! CustomCell
+        
+        
+        cell.photo.image = images[indexPath.row]
+        cell.name.text = name[indexPath.row]
+        cell.modelName.text = model[indexPath.row]
+        
+        return cell
+    }
+    
     /*
     // MARK: - Navigation
 
