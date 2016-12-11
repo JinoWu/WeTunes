@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "WeTunesProtp/MusicPlayerViewController.swift"
-            timestampString = "503095982.012419"
+            timestampString = "503105800.322137"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "220"
-            endingLineNumber = "220"
+            startingLineNumber = "230"
+            endingLineNumber = "230"
             landmarkName = "connectedDevicesChanged(manager:connectedDevices:)"
             landmarkType = "7">
          </BreakpointContent>

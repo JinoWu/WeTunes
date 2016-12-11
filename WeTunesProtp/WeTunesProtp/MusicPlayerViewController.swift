@@ -104,7 +104,7 @@ class MusicPlayerViewController: UIViewController {
 		
 		
 		imageAlbum.layer.shadowColor = UIColor.darkGray.cgColor
-		imageAlbum.layer.shadowOffset = CGSize.zero
+		imageAlbum.layer.shadowOffset = CGSize.init(width: 2, height: 2)
 		imageAlbum.layer.shadowOpacity = 0.8;
 		imageAlbum.layer.shadowRadius = 15.0;
 		imageAlbum.clipsToBounds = false;
@@ -198,15 +198,26 @@ class MusicPlayerViewController: UIViewController {
 		}
 	}
 	
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        if (segue.identifier == "hostDisconnect") {
+            let nextViewController = segue.destination as! ViewController;
+            nextViewController.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
+        }
+        if (segue.identifier == "guestDisconnect") {
+            let nextViewController = segue.destination
+                // typo here. "Guest" instead of "Guset"
+                as! GusetViewController;
+            nextViewController.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
+        }
+        
     }
-    */
+    
 }
 
 extension MusicPlayerViewController: MusicServiceManagerDelegate {

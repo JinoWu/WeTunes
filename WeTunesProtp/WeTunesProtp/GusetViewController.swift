@@ -10,6 +10,7 @@ import UIKit
 
 class GusetViewController: UIViewController {
 
+
     @IBAction func joinButton(_ sender: Any) {
         
         
@@ -19,6 +20,7 @@ class GusetViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         // self.navigationItem.title = "Scanning Holders"
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -38,8 +40,9 @@ class GusetViewController: UIViewController {
     */
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "guestSegue") {
-            let svc = segue.destination as! MusicPlayerViewController;
-            svc.isGuest = true;
+            let nextViewController = segue.destination as! MusicPlayerViewController;
+            nextViewController.isGuest = true;
+            nextViewController.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
         }
     }
 }

@@ -50,13 +50,15 @@ class ViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if (segue.identifier == "hostSegue") {
-            let svc = segue.destination as! MusicPlayerViewController;
-                
-            
-            
-            svc.isHost = true;
-            //svc.flagLabel.text = "This is a host!"
-            
+            let nextViewController = segue.destination as! MusicPlayerViewController;
+            nextViewController.isHost = true;
+            nextViewController.modalTransitionStyle = UIModalTransitionStyle.flipHorizontal
+        }
+        if (segue.identifier == "joinOthersSegue") {
+            let nextViewController = segue.destination
+                // typo here. "Guest" instead of "Guset"
+                as! GusetViewController;
+            nextViewController.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
         }
     }
 

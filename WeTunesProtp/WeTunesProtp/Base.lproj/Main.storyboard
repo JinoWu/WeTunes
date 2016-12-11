@@ -40,7 +40,7 @@
                                 <fontDescription key="fontDescription" name="Futura-MediumItalic" family="Futura" pointSize="21"/>
                                 <state key="normal" title="Join Others"/>
                                 <connections>
-                                    <segue destination="d6L-t2-aLu" kind="show" id="Sqa-f2-GDf"/>
+                                    <segue destination="d6L-t2-aLu" kind="show" identifier="joinOthersSegue" id="Sqa-f2-GDf"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="uMd-NF-rau">
@@ -147,7 +147,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ui1-73-e7U">
-                                <rect key="frame" x="194" y="29" width="151" height="80"/>
+                                <rect key="frame" x="194" y="31" width="151" height="80"/>
                                 <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" image="Eject">
                                     <attributedString key="attributedTitle">
@@ -163,7 +163,7 @@
                                 </connections>
                             </button>
                             <label verifyAmbiguity="off" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nKw-xB-GA5">
-                                <rect key="frame" x="85" y="49" width="40" height="40"/>
+                                <rect key="frame" x="80" y="54" width="16.5" height="37"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="27"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -280,7 +280,7 @@
                             <constraint firstItem="6Vd-DM-X0h" firstAttribute="top" secondItem="AJ2-7c-gCI" secondAttribute="bottom" constant="76" id="9IQ-wX-Q4P"/>
                             <constraint firstItem="6Vd-DM-X0h" firstAttribute="leading" secondItem="WQ1-rb-OrK" secondAttribute="trailing" constant="30" id="9kb-dn-5ql"/>
                             <constraint firstItem="anP-SG-Ren" firstAttribute="top" secondItem="hcW-cO-m6s" secondAttribute="bottom" constant="32" id="AnX-kn-UJ8"/>
-                            <constraint firstItem="HYs-ID-MWh" firstAttribute="top" secondItem="nKw-xB-GA5" secondAttribute="bottom" constant="28" id="FLu-66-E0N"/>
+                            <constraint firstItem="HYs-ID-MWh" firstAttribute="top" secondItem="nKw-xB-GA5" secondAttribute="bottom" constant="23" id="FLu-66-E0N"/>
                             <constraint firstItem="aw5-nX-BCL" firstAttribute="top" secondItem="AJ2-7c-gCI" secondAttribute="bottom" constant="7" id="GGh-Uw-Ekj"/>
                             <constraint firstItem="WQ1-rb-OrK" firstAttribute="leading" secondItem="eWQ-bb-JdV" secondAttribute="trailing" constant="20" id="GhT-Pa-aYc"/>
                             <constraint firstItem="N4L-Ut-SpY" firstAttribute="top" secondItem="WQ1-rb-OrK" secondAttribute="bottom" constant="62" id="I1P-os-eMt"/>
@@ -288,9 +288,9 @@
                             <constraint firstItem="AJ2-7c-gCI" firstAttribute="top" secondItem="HYs-ID-MWh" secondAttribute="bottom" constant="60" id="LLC-Lz-Cck"/>
                             <constraint firstItem="HYs-ID-MWh" firstAttribute="top" secondItem="anP-SG-Ren" secondAttribute="bottom" constant="27" id="NAz-qQ-h5J"/>
                             <constraint firstItem="eWQ-bb-JdV" firstAttribute="leading" secondItem="OT1-PI-MoJ" secondAttribute="trailing" constant="20" id="NHU-wf-yGJ"/>
-                            <constraint firstItem="HYs-ID-MWh" firstAttribute="top" secondItem="ui1-73-e7U" secondAttribute="bottom" constant="8" id="Paj-mW-JLI"/>
+                            <constraint firstItem="HYs-ID-MWh" firstAttribute="top" secondItem="ui1-73-e7U" secondAttribute="bottom" constant="3" id="Paj-mW-JLI"/>
                             <constraint firstItem="N4L-Ut-SpY" firstAttribute="top" secondItem="eWQ-bb-JdV" secondAttribute="bottom" constant="57" id="RqG-wI-cwM"/>
-                            <constraint firstItem="nKw-xB-GA5" firstAttribute="top" secondItem="hcW-cO-m6s" secondAttribute="bottom" constant="29" id="Sa3-Aa-JaM"/>
+                            <constraint firstItem="nKw-xB-GA5" firstAttribute="top" secondItem="hcW-cO-m6s" secondAttribute="bottom" constant="34" id="Sa3-Aa-JaM"/>
                             <constraint firstItem="eWQ-bb-JdV" firstAttribute="top" secondItem="AJ2-7c-gCI" secondAttribute="bottom" constant="71" id="Sxf-vN-wS6"/>
                             <constraint firstItem="N4L-Ut-SpY" firstAttribute="top" secondItem="mQC-qk-u1S" secondAttribute="bottom" constant="20" id="U9J-rm-hIq"/>
                             <constraint firstItem="N4L-Ut-SpY" firstAttribute="top" secondItem="OT1-PI-MoJ" secondAttribute="bottom" constant="62" id="WEb-P4-GdU"/>
@@ -308,9 +308,9 @@
                             <constraint firstItem="AJ2-7c-gCI" firstAttribute="centerX" secondItem="RPt-5s-QeZ" secondAttribute="centerX" id="qtg-uA-0cf"/>
                             <constraint firstItem="AJ2-7c-gCI" firstAttribute="leading" secondItem="RPt-5s-QeZ" secondAttribute="leadingMargin" constant="30" id="t1b-Ln-c9g"/>
                             <constraint firstItem="aw5-nX-BCL" firstAttribute="leading" secondItem="RPt-5s-QeZ" secondAttribute="leadingMargin" constant="30" id="tDK-8E-vOB"/>
-                            <constraint firstItem="ui1-73-e7U" firstAttribute="top" secondItem="hcW-cO-m6s" secondAttribute="bottom" constant="9" id="uPC-Ih-VuP"/>
+                            <constraint firstItem="ui1-73-e7U" firstAttribute="top" secondItem="hcW-cO-m6s" secondAttribute="bottom" constant="11" id="uPC-Ih-VuP"/>
                             <constraint firstItem="anP-SG-Ren" firstAttribute="leading" secondItem="RPt-5s-QeZ" secondAttribute="leadingMargin" constant="26" id="vBu-FX-CAm"/>
-                            <constraint firstItem="nKw-xB-GA5" firstAttribute="leading" secondItem="anP-SG-Ren" secondAttribute="trailing" constant="8" id="ysc-YI-n16"/>
+                            <constraint firstItem="nKw-xB-GA5" firstAttribute="leading" secondItem="anP-SG-Ren" secondAttribute="trailing" constant="3" id="ysc-YI-n16"/>
                         </constraints>
                     </view>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
@@ -345,7 +345,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="S0p-Xt-OQL" id="UdR-UJ-O0r">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ijb-jp-1MQ">
