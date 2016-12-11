@@ -22,10 +22,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" tag="20" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I5Z-k6-bel">
+                            <button opaque="NO" tag="20" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I5Z-k6-bel">
                                 <rect key="frame" x="87" y="476" width="200" height="75"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.60000002384185791" green="0.40000000596046448" blue="0.20000000298023224" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="I5Z-k6-bel" secondAttribute="height" multiplier="8:3" id="Tec-NG-mYF"/>
+                                    <constraint firstAttribute="height" constant="75" id="ePL-s4-ug1"/>
+                                    <constraint firstAttribute="width" constant="200" id="wT4-wl-ZUg"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="Futura-MediumItalic" family="Futura" pointSize="21"/>
                                 <size key="titleShadowOffset" width="0.0" height="9"/>
                                 <state key="normal" title="Share the Music"/>
@@ -33,10 +37,14 @@
                                     <segue destination="QfE-8h-dmu" kind="show" identifier="hostSegue" id="1hk-6R-HXC"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cpd-be-kRY">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cpd-be-kRY">
                                 <rect key="frame" x="87" y="559" width="200" height="75"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.60000002384185791" green="0.40000000596046448" blue="0.20000000298023224" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Cpd-be-kRY" secondAttribute="height" multiplier="8:3" id="Zvz-zu-8DO"/>
+                                    <constraint firstAttribute="height" constant="75" id="eL6-4h-bDZ"/>
+                                    <constraint firstAttribute="width" constant="200" id="zhO-oN-FdW"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="Futura-MediumItalic" family="Futura" pointSize="21"/>
                                 <state key="normal" title="Join Others"/>
                                 <connections>
@@ -67,11 +75,15 @@
                             <constraint firstAttribute="trailingMargin" secondItem="EIw-z9-89G" secondAttribute="trailing" constant="25" id="0kg-qL-LHj"/>
                             <constraint firstAttribute="trailingMargin" secondItem="EIw-z9-89G" secondAttribute="trailing" constant="25" id="HX4-z7-dF0"/>
                             <constraint firstAttribute="trailingMargin" secondItem="uMd-NF-rau" secondAttribute="trailing" constant="22" id="JdI-n3-bT4"/>
+                            <constraint firstItem="Cpd-be-kRY" firstAttribute="top" secondItem="I5Z-k6-bel" secondAttribute="bottom" constant="8" id="M1Q-AQ-1PK"/>
                             <constraint firstItem="uMd-NF-rau" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="WfZ-cS-pX6"/>
                             <constraint firstItem="EIw-z9-89G" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="25" id="YP0-uV-YcV"/>
                             <constraint firstItem="uMd-NF-rau" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-84.5" id="faF-f5-UNj"/>
                             <constraint firstItem="uMd-NF-rau" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="22" id="ieX-dw-h4r"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Cpd-be-kRY" secondAttribute="bottom" constant="33" id="jgD-ko-3H2"/>
+                            <constraint firstItem="I5Z-k6-bel" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="lXr-Oc-0X4"/>
                             <constraint firstItem="EIw-z9-89G" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="25" id="v24-tv-gKE"/>
+                            <constraint firstItem="Cpd-be-kRY" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="z6n-EJ-5df"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Welcome to WeTunes 1.0" id="7Xh-l8-WQW"/>
@@ -163,7 +175,7 @@
                                 </connections>
                             </button>
                             <label verifyAmbiguity="off" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nKw-xB-GA5">
-                                <rect key="frame" x="80" y="54" width="16.5" height="37"/>
+                                <rect key="frame" x="80" y="55" width="16.5" height="37"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="27"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -280,7 +292,7 @@
                             <constraint firstItem="6Vd-DM-X0h" firstAttribute="top" secondItem="AJ2-7c-gCI" secondAttribute="bottom" constant="76" id="9IQ-wX-Q4P"/>
                             <constraint firstItem="6Vd-DM-X0h" firstAttribute="leading" secondItem="WQ1-rb-OrK" secondAttribute="trailing" constant="30" id="9kb-dn-5ql"/>
                             <constraint firstItem="anP-SG-Ren" firstAttribute="top" secondItem="hcW-cO-m6s" secondAttribute="bottom" constant="32" id="AnX-kn-UJ8"/>
-                            <constraint firstItem="HYs-ID-MWh" firstAttribute="top" secondItem="nKw-xB-GA5" secondAttribute="bottom" constant="23" id="FLu-66-E0N"/>
+                            <constraint firstItem="HYs-ID-MWh" firstAttribute="top" secondItem="nKw-xB-GA5" secondAttribute="bottom" constant="22" id="FLu-66-E0N"/>
                             <constraint firstItem="aw5-nX-BCL" firstAttribute="top" secondItem="AJ2-7c-gCI" secondAttribute="bottom" constant="7" id="GGh-Uw-Ekj"/>
                             <constraint firstItem="WQ1-rb-OrK" firstAttribute="leading" secondItem="eWQ-bb-JdV" secondAttribute="trailing" constant="20" id="GhT-Pa-aYc"/>
                             <constraint firstItem="N4L-Ut-SpY" firstAttribute="top" secondItem="WQ1-rb-OrK" secondAttribute="bottom" constant="62" id="I1P-os-eMt"/>
@@ -290,7 +302,7 @@
                             <constraint firstItem="eWQ-bb-JdV" firstAttribute="leading" secondItem="OT1-PI-MoJ" secondAttribute="trailing" constant="20" id="NHU-wf-yGJ"/>
                             <constraint firstItem="HYs-ID-MWh" firstAttribute="top" secondItem="ui1-73-e7U" secondAttribute="bottom" constant="3" id="Paj-mW-JLI"/>
                             <constraint firstItem="N4L-Ut-SpY" firstAttribute="top" secondItem="eWQ-bb-JdV" secondAttribute="bottom" constant="57" id="RqG-wI-cwM"/>
-                            <constraint firstItem="nKw-xB-GA5" firstAttribute="top" secondItem="hcW-cO-m6s" secondAttribute="bottom" constant="34" id="Sa3-Aa-JaM"/>
+                            <constraint firstItem="nKw-xB-GA5" firstAttribute="top" secondItem="hcW-cO-m6s" secondAttribute="bottom" constant="35" id="Sa3-Aa-JaM"/>
                             <constraint firstItem="eWQ-bb-JdV" firstAttribute="top" secondItem="AJ2-7c-gCI" secondAttribute="bottom" constant="71" id="Sxf-vN-wS6"/>
                             <constraint firstItem="N4L-Ut-SpY" firstAttribute="top" secondItem="mQC-qk-u1S" secondAttribute="bottom" constant="20" id="U9J-rm-hIq"/>
                             <constraint firstItem="N4L-Ut-SpY" firstAttribute="top" secondItem="OT1-PI-MoJ" secondAttribute="bottom" constant="62" id="WEb-P4-GdU"/>
@@ -437,8 +449,8 @@
         <image name="heartwillgo" width="279" height="270"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="TcA-pj-Hea"/>
+        <segue reference="qrN-a6-5Kg"/>
+        <segue reference="Sqa-f2-GDf"/>
         <segue reference="1hk-6R-HXC"/>
-        <segue reference="RTm-8f-DWZ"/>
     </inferredMetricsTieBreakers>
 </document>
