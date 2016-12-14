@@ -12,6 +12,10 @@ import AVFoundation
 import MediaPlayer
 
 class MusicPlayerViewController: UIViewController {
+    
+    // Activity Indicator declare
+    var activityIndicator:UIActivityIndicatorView = UIActivityIndicatorView()
+    
     // MARK: - Flags
     var isHost = false
     var isGuest = false
@@ -59,17 +63,27 @@ class MusicPlayerViewController: UIViewController {
             performSegue(withIdentifier: "guestDisconnect", sender: self)
         }
     }
+    
+    // function to chnage play pause button image
+    func btnImage(name: String){
+        playOrPauseOutLet.isEnabled = false
+        playOrPauseOutLet.setBackgroundImage(UIImage(named:name), for: UIControlState.normal)
+        playOrPauseOutLet.isEnabled = true
+    }
+    
     @IBOutlet weak var playOrPauseOutLet: UIButton!
     @IBAction func playOrPause(_ sender: Any) {
 		if playerPrepared {
 			if myMusicPlayer.isPlaying{
+//                playOrPauseOutLet.setBackgroundImage(UIImage(named:"Play"), for: UIControlState.normal)
 				musicService.sendState(state: "pause")
 				myMusicPlayer.pause()
-				playOrPauseOutLet.setBackgroundImage(UIImage(named:"Play"), for: UIControlState.normal)
+                btnImage(name: "Play")
 			}else{
+//                playOrPauseOutLet.setBackgroundImage(UIImage(named:"Adervising"), for: UIControlState.normal)
 				musicService.sendState(state: "play")
 				myMusicPlayer.play()
-				playOrPauseOutLet.setBackgroundImage(UIImage(named:"Pause"), for: UIControlState.normal)
+                btnImage(name: "Pause")
 			}
 		}
 		
@@ -87,6 +101,7 @@ class MusicPlayerViewController: UIViewController {
 	// MARK: - Functions
     override func viewDidLoad() {
         super.viewDidLoad()
+    
 		musicService.delegate = self
         if (self.isHost) {
             self.flagLabel.text = "This is a host !"
@@ -117,8 +132,8 @@ class MusicPlayerViewController: UIViewController {
 		} else {
 			playOrPauseOutLet.setBackgroundImage(UIImage(named:"Play"), for: UIControlState.normal)
 		}
-		
     }
+    
 	func timerFired() {
 		if let music = song,playerPrepared{
 //			print(music.tracks.count)
@@ -191,6 +206,16 @@ class MusicPlayerViewController: UIViewController {
 				let myAudioSession = AVAudioSession.sharedInstance()
 				try myAudioSession.setCategory(AVAudioSessionCategoryPlayback)
 				musicService.sendMediaItem(item: self.songItem!)
+                
+                // start animating ActivityIndicator
+                activityIndicator.center = self.view.center
+                activityIndicator.hidesWhenStopped = true
+                activityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.whiteLarge
+                view.addSubview(activityIndicator)
+                
+                activityIndicator.startAnimating()
+                print("start animating")
+                
 			}catch let error {
 				print(error)
 			}
@@ -253,19 +278,28 @@ extension MusicPlayerViewController: MusicServiceManagerDelegate {
 		musicService.sendState(state: "ready")
 	}
 	func stateReceived(manager: MusicServiceManager, state: String) {
+        
+        
 		if state == "ready" && isHolderMode && musicService.transferingStatus.count == musicService.session.connectedPeers.count{
 			musicService.sendState(state: "play")
 			self.myMusicPlayer.play()
-			self.playOrPauseOutLet.setBackgroundImage(UIImage(named:"Pause"), for: UIControlState.normal)
+            btnImage(name: "Pause")
+//			self.playOrPauseOutLet.setBackgroundImage(UIImage(named:"iPad_000000_100"), for: UIControlState.normal)
+            
 		}
 		if state == "play" && playerPrepared{
 			self.myMusicPlayer.play()
-			self.playOrPauseOutLet.setBackgroundImage(UIImage(named:"Pause"), for: UIControlState.normal)
+            btnImage(name: "Pause")
+//			self.playOrPauseOutLet.setBackgroundImage(UIImage(named:"List"), for: UIControlState.normal)
 		}
 		if state == "pause" && playerPrepared{
 			self.myMusicPlayer.pause()
-			self.playOrPauseOutLet.setBackgroundImage(UIImage(named:"Play"), for: UIControlState.normal)
+            btnImage(name: "Play")
+//			self.playOrPauseOutLet.setBackgroundImage(UIImage(named:"Playlist"), for: UIControlState.normal)
 		}
+        // activityIndicator to stop animating
+        activityIndicator.stopAnimating()
+
 	}
 	func streamChanged(manager: MusicServiceManager, _ aStream: Stream, handle eventCode: Stream.Event) {
 		

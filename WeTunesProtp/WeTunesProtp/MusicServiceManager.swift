@@ -261,6 +261,7 @@ extension MusicServiceManager: MCSessionDelegate {
 			self.delegate?.dataChanged(manager: self, data: data)
 		}
 	}
+    
 	func session(_ session: MCSession, didReceive stream: InputStream, withName streamName: String, fromPeer peerID: MCPeerID) {
 		print("didReceiveStream from \(peerID)")
 		if streamName == "music" {
