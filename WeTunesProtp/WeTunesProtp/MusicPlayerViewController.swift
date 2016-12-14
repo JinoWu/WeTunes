@@ -298,8 +298,10 @@ extension MusicPlayerViewController: MusicServiceManagerDelegate {
 //			self.playOrPauseOutLet.setBackgroundImage(UIImage(named:"Playlist"), for: UIControlState.normal)
 		}
         // activityIndicator to stop animating
-        activityIndicator.stopAnimating()
-
+        if (activityIndicator.isAnimating){
+            activityIndicator.stopAnimating()
+            print("animation stopped")
+        }
 	}
 	func streamChanged(manager: MusicServiceManager, _ aStream: Stream, handle eventCode: Stream.Event) {
 		
