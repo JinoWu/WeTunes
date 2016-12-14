@@ -132,6 +132,12 @@ class MusicPlayerViewController: UIViewController {
 		} else {
 			playOrPauseOutLet.setBackgroundImage(UIImage(named:"Play"), for: UIControlState.normal)
 		}
+        
+        // start animating ActivityIndicator
+        activityIndicator.center = self.view.center
+        activityIndicator.hidesWhenStopped = true
+        activityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.whiteLarge
+        view.addSubview(activityIndicator)
     }
     
 	func timerFired() {
@@ -207,15 +213,12 @@ class MusicPlayerViewController: UIViewController {
 				try myAudioSession.setCategory(AVAudioSessionCategoryPlayback)
 				musicService.sendMediaItem(item: self.songItem!)
                 
-                // start animating ActivityIndicator
-                activityIndicator.center = self.view.center
-                activityIndicator.hidesWhenStopped = true
-                activityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.whiteLarge
-                view.addSubview(activityIndicator)
+
                 
-                // activityIndicator to stop animating
+                // activityIndicator to start animating
                 DispatchQueue.main.async{
                     self.activityIndicator.startAnimating()
+                    self.flagLabel.text = "Sending music file ...."
                     UIApplication.shared.beginIgnoringInteractionEvents()
                 }
                 print("start animating")
@@ -276,6 +279,14 @@ extension MusicPlayerViewController: MusicServiceManagerDelegate {
 			self.playerPrepared=true
 			let myAudioSession = AVAudioSession.sharedInstance()
 			try myAudioSession.setCategory(AVAudioSessionCategoryPlayback)
+            
+            // activityIndicator to start animating
+            DispatchQueue.main.async{
+                self.activityIndicator.startAnimating()
+                self.flagLabel.text = "Receiving music file ...."
+                UIApplication.shared.beginIgnoringInteractionEvents()
+            }
+            print("start animating")
 		}catch let error {
 			print(error)
 		}
