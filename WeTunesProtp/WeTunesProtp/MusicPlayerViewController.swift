@@ -213,7 +213,11 @@ class MusicPlayerViewController: UIViewController {
                 activityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.whiteLarge
                 view.addSubview(activityIndicator)
                 
-                activityIndicator.startAnimating()
+                // activityIndicator to stop animating
+                DispatchQueue.main.async{
+                    self.activityIndicator.startAnimating()
+                    UIApplication.shared.beginIgnoringInteractionEvents()
+                }
                 print("start animating")
                 
 			}catch let error {
@@ -283,25 +287,30 @@ extension MusicPlayerViewController: MusicServiceManagerDelegate {
 		if state == "ready" && isHolderMode && musicService.transferingStatus.count == musicService.session.connectedPeers.count{
 			musicService.sendState(state: "play")
 			self.myMusicPlayer.play()
-            btnImage(name: "Pause")
-//			self.playOrPauseOutLet.setBackgroundImage(UIImage(named:"iPad_000000_100"), for: UIControlState.normal)
-            
+
+            DispatchQueue.main.async{
+                self.btnImage(name: "Pause")
+            }
 		}
 		if state == "play" && playerPrepared{
 			self.myMusicPlayer.play()
-            btnImage(name: "Pause")
-//			self.playOrPauseOutLet.setBackgroundImage(UIImage(named:"List"), for: UIControlState.normal)
+            DispatchQueue.main.async{
+                self.btnImage(name: "Pause")
+            }
 		}
 		if state == "pause" && playerPrepared{
 			self.myMusicPlayer.pause()
-            btnImage(name: "Play")
-//			self.playOrPauseOutLet.setBackgroundImage(UIImage(named:"Playlist"), for: UIControlState.normal)
+            DispatchQueue.main.async{
+                self.btnImage(name: "Play")
+            }
 		}
+        
         // activityIndicator to stop animating
-        if (activityIndicator.isAnimating){
-            activityIndicator.stopAnimating()
-            print("animation stopped")
+        DispatchQueue.main.async{
+            self.activityIndicator.stopAnimating()
+            UIApplication.shared.endIgnoringInteractionEvents()
         }
+        
 	}
 	func streamChanged(manager: MusicServiceManager, _ aStream: Stream, handle eventCode: Stream.Event) {
 		
