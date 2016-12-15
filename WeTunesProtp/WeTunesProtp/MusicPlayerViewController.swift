@@ -11,19 +11,34 @@ import QuartzCore
 import AVFoundation
 import MediaPlayer
 
-class MusicPlayerViewController: UIViewController {
+class MusicPlayerViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     // Activity Indicator declare
     var activityIndicator:UIActivityIndicatorView = UIActivityIndicatorView()
+    
+    // List of devide to show on connected device tableView
+    var dName = ["Siddharth's Iphone","Jino's Ipad"]
     
     // MARK: - Flags
     var isHost = false
     var isGuest = false
     @IBOutlet weak var flagLabel: UILabel!
     
+    @IBOutlet weak var tableView: UITableView!
+    
     @IBOutlet weak var devicesButton: UIButton!
     @IBAction func devicesButton(_ sender: Any) {
     }
+    
+    @IBAction func connectedDevices(_ sender: Any) {
+        tableView.isHidden = false
+//        tableView.isOpaque = true
+//        tableView.allowsSelection = false
+        tableView.layer.cornerRadius = 10
+        tableView.layer.opacity = 0.9
+    }
+    
+    
 	// MARK: - Variables
 	var myMusicPlayer = AVAudioPlayer()
 	var playerPrepared = false
@@ -69,6 +84,7 @@ class MusicPlayerViewController: UIViewController {
         playOrPauseOutLet.isEnabled = false
         playOrPauseOutLet.setBackgroundImage(UIImage(named:name), for: UIControlState.normal)
         playOrPauseOutLet.isEnabled = true
+        
     }
     
     @IBOutlet weak var playOrPauseOutLet: UIButton!
@@ -98,9 +114,32 @@ class MusicPlayerViewController: UIViewController {
 	@IBAction func buttonNext(_ sender: Any) {
 //		mp.skipToNextItem()
 	}
+    
+    
+    //TableView Methods
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 2;
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = self.tableView.dequeueReusableCell(withIdentifier: "dCell", for: indexPath) as!  DeviceCell
+        
+        cell.deviceName.text = dName[indexPath.row]
+        
+        return cell
+    }
+    
 	// MARK: - Functions
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissView")
+        
+        view.addGestureRecognizer(tap)
+        
+        // hide tableview on ONLOAD
+        tableView.isHidden = true
     
 		musicService.delegate = self
         if (self.isHost) {
@@ -138,6 +177,11 @@ class MusicPlayerViewController: UIViewController {
         activityIndicator.hidesWhenStopped = true
         activityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.whiteLarge
         view.addSubview(activityIndicator)
+    }
+    
+    func dismissView() {
+        //Causes the view (or one of its embedded text fields) to resign the first responder status.
+        tableView.isHidden = true
     }
     
 	func timerFired() {
