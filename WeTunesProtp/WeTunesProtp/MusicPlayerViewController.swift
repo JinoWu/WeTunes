@@ -17,7 +17,7 @@ class MusicPlayerViewController: UIViewController, UITableViewDataSource, UITabl
     var activityIndicator:UIActivityIndicatorView = UIActivityIndicatorView()
     
     // List of devide to show on connected device tableView
-    var dName = ["Siddharth's Iphone","Jino's Ipad"]
+    var dName = [String]()
     
     // MARK: - Flags
     var isHost = false
@@ -119,7 +119,7 @@ class MusicPlayerViewController: UIViewController, UITableViewDataSource, UITabl
     //TableView Methods
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2;
+        return dName.count;
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -177,6 +177,8 @@ class MusicPlayerViewController: UIViewController, UITableViewDataSource, UITabl
         activityIndicator.hidesWhenStopped = true
         activityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.whiteLarge
         view.addSubview(activityIndicator)
+       
+        
     }
     
     func dismissView() {
@@ -309,6 +311,7 @@ extension MusicPlayerViewController: MusicServiceManagerDelegate {
                 self.devicesButton.setBackgroundImage(
                     UIImage(named:"Two Smartphones")?.withRenderingMode(.alwaysOriginal), for: .normal)
             }
+
 		}
 		
 	}

@@ -28,7 +28,6 @@ class MusicServiceManager: NSObject {
     let myPeerId = MCPeerID(displayName: UIDevice.current.name)
     
     
-    
 	private let serviceAdvertiser: MCNearbyServiceAdvertiser
 	private let serviceBrowser: MCNearbyServiceBrowser
 	var delegate: MusicServiceManagerDelegate?
@@ -261,6 +260,7 @@ extension MCSessionState {
 extension MusicServiceManager: MCSessionDelegate {
 	func session(_ session: MCSession, peer peerID: MCPeerID, didChange state: MCSessionState) {
 		print("peer \(peerID) didChangeState: \(state.stringValue())")
+
 		self.delegate?.connectedDevicesChanged(manager: self, connectedDevices: session.connectedPeers.map({$0.displayName}))
 	}
 	func session(_ session: MCSession, didReceive data: Data, fromPeer peerID: MCPeerID) {
