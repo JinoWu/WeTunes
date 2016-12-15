@@ -234,14 +234,14 @@ extension MusicServiceManager: MCNearbyServiceBrowserDelegate {
 	func browser(_ browser: MCNearbyServiceBrowser, foundPeer peerID: MCPeerID, withDiscoveryInfo info: [String : String]?) {
 		print("foundPeer: \(peerID)")
 		print("invitePeer: \(myPeerId)")
-        print(peerID.isEqual(myPeerId))
-        if peerID.displayName != self.myPeerId.displayName {
+//        print(peerID.isEqual(myPeerId))
+//        if peerID.displayName != self.myPeerId.displayName {
             browser.invitePeer(peerID, to: self.session, withContext: nil, timeout: 10)
-            //invite found device automatically
-            print("Try to connecting others")
-        } else {
-            print("Bad:yourself!!!!!!!!!")
-        }
+//            //invite found device automatically
+//            print("Try to connecting others")
+//        } else {
+//            print("Bad:yourself!!!!!!!!!")
+//        }
 	}
 	func browser(_ browser: MCNearbyServiceBrowser, lostPeer peerID: MCPeerID) {
 		print("lostPeer: \(peerID)")

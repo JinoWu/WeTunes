@@ -311,8 +311,12 @@ extension MusicPlayerViewController: MusicServiceManagerDelegate {
                 self.devicesButton.setBackgroundImage(
                     UIImage(named:"Two Smartphones")?.withRenderingMode(.alwaysOriginal), for: .normal)
             }
-
 		}
+        DispatchQueue.main.async{
+            self.dName = connectedDevices
+            self.tableView.reloadData()
+        }
+
 		
 	}
 	func dataChanged(manager: MusicServiceManager, data: Data) {
