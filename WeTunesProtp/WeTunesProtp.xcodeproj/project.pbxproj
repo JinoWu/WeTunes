@@ -10,8 +10,8 @@
 		18240C641DD59808008CDBA2 /* SongsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18240C631DD59808008CDBA2 /* SongsTableViewCell.swift */; };
 		185DA0FC1DDA785B0062F3E8 /* MusicServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185DA0FB1DDA785B0062F3E8 /* MusicServiceManager.swift */; };
 		18C314501DDE84F500196BC7 /* SongPickerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C3144F1DDE84F500196BC7 /* SongPickerTableViewController.swift */; };
+		35923D671E024ADA0054272E /* DeviceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35923D661E024ADA0054272E /* DeviceCell.swift */; };
 		35E8088F1DFCF3C800AD1709 /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E8088E1DFCF3C800AD1709 /* CustomCell.swift */; };
-		7226A6A81DCC0B8500EFDDF6 /* 15.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7226A6A71DCC0B8500EFDDF6 /* 15.mp3 */; };
 		724263891DFCD16B0008FC9D /* ListofConnectedDevices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724263881DFCD16B0008FC9D /* ListofConnectedDevices.swift */; };
 		727AFD121DFC85630087508D /* ListofConnectedDevices.xib in Resources */ = {isa = PBXBuildFile; fileRef = 727AFD111DFC85630087508D /* ListofConnectedDevices.xib */; };
 		72874A951DB1BE3F00949BC6 /* MusicPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72874A941DB1BE3F00949BC6 /* MusicPlayerViewController.swift */; };
@@ -47,8 +47,8 @@
 		18240C631DD59808008CDBA2 /* SongsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SongsTableViewCell.swift; sourceTree = "<group>"; };
 		185DA0FB1DDA785B0062F3E8 /* MusicServiceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicServiceManager.swift; sourceTree = "<group>"; };
 		18C3144F1DDE84F500196BC7 /* SongPickerTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SongPickerTableViewController.swift; sourceTree = "<group>"; };
+		35923D661E024ADA0054272E /* DeviceCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceCell.swift; sourceTree = "<group>"; };
 		35E8088E1DFCF3C800AD1709 /* CustomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomCell.swift; path = ../CustomCell.swift; sourceTree = "<group>"; };
-		7226A6A71DCC0B8500EFDDF6 /* 15.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = 15.mp3; path = ../15.mp3; sourceTree = "<group>"; };
 		724263881DFCD16B0008FC9D /* ListofConnectedDevices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListofConnectedDevices.swift; sourceTree = "<group>"; };
 		727AFD111DFC85630087508D /* ListofConnectedDevices.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ListofConnectedDevices.xib; sourceTree = "<group>"; };
 		727AFD131DFC9F0A0087508D /* WeTunesProtp-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WeTunesProtp-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -126,11 +126,11 @@
 				72874A981DB1C36200949BC6 /* GusetViewController.swift */,
 				35E8088E1DFCF3C800AD1709 /* CustomCell.swift */,
 				72874A941DB1BE3F00949BC6 /* MusicPlayerViewController.swift */,
+				35923D661E024ADA0054272E /* DeviceCell.swift */,
 				18C3144F1DDE84F500196BC7 /* SongPickerTableViewController.swift */,
 				72C9D46B1DB1B5010029AEB7 /* Main.storyboard */,
 				72C9D46E1DB1B5010029AEB7 /* Assets.xcassets */,
 				72C9D4701DB1B5010029AEB7 /* LaunchScreen.storyboard */,
-				7226A6A71DCC0B8500EFDDF6 /* 15.mp3 */,
 				72C9D4731DB1B5010029AEB7 /* Info.plist */,
 				727AFD111DFC85630087508D /* ListofConnectedDevices.xib */,
 				724263881DFCD16B0008FC9D /* ListofConnectedDevices.swift */,
@@ -271,7 +271,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7226A6A81DCC0B8500EFDDF6 /* 15.mp3 in Resources */,
 				72C9D4721DB1B5010029AEB7 /* LaunchScreen.storyboard in Resources */,
 				72C9D46F1DB1B5010029AEB7 /* Assets.xcassets in Resources */,
 				72C9D46D1DB1B5010029AEB7 /* Main.storyboard in Resources */,
@@ -308,6 +307,7 @@
 				18C314501DDE84F500196BC7 /* SongPickerTableViewController.swift in Sources */,
 				72C9D4681DB1B5010029AEB7 /* AppDelegate.swift in Sources */,
 				72874A971DB1C31E00949BC6 /* HolderViewController.swift in Sources */,
+				35923D671E024ADA0054272E /* DeviceCell.swift in Sources */,
 				72874A951DB1BE3F00949BC6 /* MusicPlayerViewController.swift in Sources */,
 				724263891DFCD16B0008FC9D /* ListofConnectedDevices.swift in Sources */,
 			);

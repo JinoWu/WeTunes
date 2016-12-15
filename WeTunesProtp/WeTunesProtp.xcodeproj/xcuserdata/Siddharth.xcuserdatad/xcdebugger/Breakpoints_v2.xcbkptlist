@@ -105,13 +105,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "WeTunesProtp/GusetViewController.swift"
-            timestampString = "503118171.364085"
+            timestampString = "503462789.678889"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "37"
-            endingLineNumber = "37"
-            landmarkName = "tableView(_:numberOfRowsInSection:)"
-            landmarkType = "7">
+            startingLineNumber = "36"
+            endingLineNumber = "36"
+            landmarkName = "GusetViewController"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -121,12 +121,44 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "WeTunesProtp/GusetViewController.swift"
-            timestampString = "503118172.631273"
+            timestampString = "503462789.678889"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "41"
-            endingLineNumber = "41"
-            landmarkName = "tableView(_:cellForRowAt:)"
+            startingLineNumber = "40"
+            endingLineNumber = "40"
+            landmarkName = "GusetViewController"
+            landmarkType = "3">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WeTunesProtp/MusicPlayerViewController.swift"
+            timestampString = "503468788.779928"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "100"
+            endingLineNumber = "100"
+            landmarkName = "playOrPause(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WeTunesProtp/MusicPlayerViewController.swift"
+            timestampString = "503472746.930975"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "351"
+            endingLineNumber = "351"
+            landmarkName = "dataChanged(manager:data:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

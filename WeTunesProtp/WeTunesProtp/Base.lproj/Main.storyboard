@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -122,7 +122,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="56"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="WCx-jl-JD1" id="We7-ly-xOG">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="55"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="55.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ayY-A8-OVO">
@@ -306,7 +306,7 @@
                                 <state key="normal" backgroundImage="RandomMode"/>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="heartwillgo" translatesAutoresizingMaskIntoConstraints="NO" id="HYs-ID-MWh">
-                                <rect key="frame" x="42" y="114" width="292" height="287"/>
+                                <rect key="frame" x="41.5" y="114" width="292" height="287"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="HYs-ID-MWh" secondAttribute="height" multiplier="1:1" constant="5" id="0zT-Ic-UEI"/>
                                 </constraints>
@@ -319,9 +319,41 @@
                                 </constraints>
                                 <state key="normal" backgroundImage="Two Smartphones"/>
                                 <connections>
+                                    <action selector="connectedDevices:" destination="QfE-8h-dmu" eventType="touchUpInside" id="0d0-qs-8F1"/>
                                     <action selector="devicesButton:" destination="QfE-8h-dmu" eventType="touchUpInside" id="OK6-6A-Yhx"/>
                                 </connections>
                             </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="9OH-sH-MPS">
+                                <rect key="frame" x="26" y="95" width="255" height="104"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="dCell" id="nur-38-znR" customClass="DeviceCell" customModule="WeTunesProtp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="255" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="nur-38-znR" id="XAg-ua-WTe">
+                                            <rect key="frame" x="0.0" y="0.0" width="255" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5su-Yb-T0f">
+                                                    <rect key="frame" x="11" y="11" width="233" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="deviceName" destination="5su-Yb-T0f" id="Cde-4w-J3Z"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="QfE-8h-dmu" id="ABF-FF-ntj"/>
+                                    <outlet property="delegate" destination="QfE-8h-dmu" id="VEN-q8-LIh"/>
+                                </connections>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" red="0.13352787494659424" green="0.12554013729095459" blue="0.12128617614507675" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -378,13 +410,14 @@
                         <outlet property="labelTrackArtistAlbum" destination="9o8-Gq-Bqp" id="tW1-CD-DGS"/>
                         <outlet property="playOrPauseOutLet" destination="eWQ-bb-JdV" id="boQ-g1-0D7"/>
                         <outlet property="sliderTime" destination="AJ2-7c-gCI" id="Czy-Rz-wfe"/>
+                        <outlet property="tableView" destination="9OH-sH-MPS" id="Xwc-D8-klk"/>
                         <segue destination="BYZ-38-t0r" kind="show" identifier="hostDisconnect" id="TcA-pj-Hea"/>
                         <segue destination="d6L-t2-aLu" kind="show" identifier="guestDisconnect" id="RTm-8f-DWZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Yt-bR-GFO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1492" y="140"/>
+            <point key="canvasLocation" x="1492" y="139.880059970015"/>
         </scene>
         <!--Song Picker Table View Controller-->
         <scene sceneID="kZF-40-Pye">
@@ -399,7 +432,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="S0p-Xt-OQL" id="UdR-UJ-O0r">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ijb-jp-1MQ">
@@ -493,6 +526,6 @@
     <inferredMetricsTieBreakers>
         <segue reference="r2d-AK-O3w"/>
         <segue reference="RTm-8f-DWZ"/>
-        <segue reference="qrN-a6-5Kg"/>
+        <segue reference="TcA-pj-Hea"/>
     </inferredMetricsTieBreakers>
 </document>

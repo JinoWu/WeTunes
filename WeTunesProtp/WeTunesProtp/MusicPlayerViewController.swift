@@ -11,19 +11,38 @@ import QuartzCore
 import AVFoundation
 import MediaPlayer
 
-class MusicPlayerViewController: UIViewController {
+class MusicPlayerViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    
+    // Activity Indicator declare
+    var activityIndicator:UIActivityIndicatorView = UIActivityIndicatorView()
+    
+    // List of devide to show on connected device tableView
+    var dName = [String]()
+    
     // MARK: - Flags
     var isHost = false
     var isGuest = false
     @IBOutlet weak var flagLabel: UILabel!
     
+    @IBOutlet weak var tableView: UITableView!
+    
     @IBOutlet weak var devicesButton: UIButton!
     @IBAction func devicesButton(_ sender: Any) {
     }
+    
+    @IBAction func connectedDevices(_ sender: Any) {
+        if(tableView.isHidden == true) {
+            tableView.isHidden = false
+        } else{
+            tableView.isHidden = true
+        }
+    }
+    
+    
 	// MARK: - Variables
 	var myMusicPlayer = AVAudioPlayer()
 	var playerPrepared = false
-	let musicService = MusicServiceManager()
+	let musicService = MusicServiceManager.sharedInstance
 	var song:AVAsset? = nil
 	var songItem:MPMediaItem? = nil
 	var isHolderMode = false
@@ -59,17 +78,28 @@ class MusicPlayerViewController: UIViewController {
             performSegue(withIdentifier: "guestDisconnect", sender: self)
         }
     }
+    
+    // function to chnage play pause button image
+    func btnImage(name: String){
+        playOrPauseOutLet.isEnabled = false
+        playOrPauseOutLet.setBackgroundImage(UIImage(named:name), for: UIControlState.normal)
+        playOrPauseOutLet.isEnabled = true
+        
+    }
+    
     @IBOutlet weak var playOrPauseOutLet: UIButton!
     @IBAction func playOrPause(_ sender: Any) {
 		if playerPrepared {
 			if myMusicPlayer.isPlaying{
+//                playOrPauseOutLet.setBackgroundImage(UIImage(named:"Play"), for: UIControlState.normal)
 				musicService.sendState(state: "pause")
 				myMusicPlayer.pause()
-				playOrPauseOutLet.setBackgroundImage(UIImage(named:"Play"), for: UIControlState.normal)
+                btnImage(name: "Play")
 			}else{
+//                playOrPauseOutLet.setBackgroundImage(UIImage(named:"Adervising"), for: UIControlState.normal)
 				musicService.sendState(state: "play")
 				myMusicPlayer.play()
-				playOrPauseOutLet.setBackgroundImage(UIImage(named:"Pause"), for: UIControlState.normal)
+                btnImage(name: "Pause")
 			}
 		}
 		
@@ -84,9 +114,36 @@ class MusicPlayerViewController: UIViewController {
 	@IBAction func buttonNext(_ sender: Any) {
 //		mp.skipToNextItem()
 	}
+    
+    
+    //TableView Methods
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return dName.count;
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = self.tableView.dequeueReusableCell(withIdentifier: "dCell", for: indexPath) as!  DeviceCell
+        
+        cell.deviceName.text = dName[indexPath.row]
+        
+        return cell
+    }
+    
 	// MARK: - Functions
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissView")
+        
+        view.addGestureRecognizer(tap)
+        
+        // hide tableview on ONLOAD
+        tableView.isHidden = true
+        tableView.allowsSelection = false
+        tableView.layer.cornerRadius = 10
+        tableView.layer.opacity = 0.9
+    
 		musicService.delegate = self
         if (self.isHost) {
             self.flagLabel.text = "This is a host !"
@@ -117,8 +174,21 @@ class MusicPlayerViewController: UIViewController {
 		} else {
 			playOrPauseOutLet.setBackgroundImage(UIImage(named:"Play"), for: UIControlState.normal)
 		}
-		
+        
+        // start animating ActivityIndicator
+        activityIndicator.center = self.view.center
+        activityIndicator.hidesWhenStopped = true
+        activityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.whiteLarge
+        view.addSubview(activityIndicator)
+       
+        
     }
+    
+    func dismissView() {
+        //Causes the view (or one of its embedded text fields) to resign the first responder status.
+        tableView.isHidden = true
+    }
+    
 	func timerFired() {
 		if let music = song,playerPrepared{
 //			print(music.tracks.count)
@@ -191,6 +261,17 @@ class MusicPlayerViewController: UIViewController {
 				let myAudioSession = AVAudioSession.sharedInstance()
 				try myAudioSession.setCategory(AVAudioSessionCategoryPlayback)
 				musicService.sendMediaItem(item: self.songItem!)
+                
+
+                
+                // activityIndicator to start animating
+                DispatchQueue.main.async{
+                    self.activityIndicator.startAnimating()
+                    self.flagLabel.text = "Sending music file ...."
+                    UIApplication.shared.beginIgnoringInteractionEvents()
+                }
+                print("start animating")
+                
 			}catch let error {
 				print(error)
 			}
@@ -234,11 +315,25 @@ extension MusicPlayerViewController: MusicServiceManagerDelegate {
                     UIImage(named:"Two Smartphones")?.withRenderingMode(.alwaysOriginal), for: .normal)
             }
 		}
+        DispatchQueue.main.async{
+            self.dName = connectedDevices
+            self.tableView.reloadData()
+        }
+
 		
 	}
 	func dataChanged(manager: MusicServiceManager, data: Data) {
 		isHolderMode=false
 		do{
+            // activityIndicator to start animating
+            DispatchQueue.main.async{
+                self.activityIndicator.startAnimating()
+                self.flagLabel.text = "Receiving music file ...."
+                UIApplication.shared.beginIgnoringInteractionEvents()
+            }
+            print("start animating")
+            
+            
 //            myMusicPlayer = try AVAudioPlayer(contentsOf: URL.init(fileURLWithPath: Bundle.main.path(forResource: "15", ofType: "mp3")!))
 			self.song = musicService.convertDataToAVAsset(data: data)!.0
 			let songurl = musicService.convertDataToAVAsset(data: data)!.1
@@ -247,25 +342,44 @@ extension MusicPlayerViewController: MusicServiceManagerDelegate {
 			self.playerPrepared=true
 			let myAudioSession = AVAudioSession.sharedInstance()
 			try myAudioSession.setCategory(AVAudioSessionCategoryPlayback)
+            
+
 		}catch let error {
 			print(error)
 		}
 		musicService.sendState(state: "ready")
 	}
 	func stateReceived(manager: MusicServiceManager, state: String) {
+        
+        
 		if state == "ready" && isHolderMode && musicService.transferingStatus.count == musicService.session.connectedPeers.count{
 			musicService.sendState(state: "play")
 			self.myMusicPlayer.play()
-			self.playOrPauseOutLet.setBackgroundImage(UIImage(named:"Pause"), for: UIControlState.normal)
+
+            DispatchQueue.main.async{
+                self.btnImage(name: "Pause")
+            }
 		}
 		if state == "play" && playerPrepared{
 			self.myMusicPlayer.play()
-			self.playOrPauseOutLet.setBackgroundImage(UIImage(named:"Pause"), for: UIControlState.normal)
+            DispatchQueue.main.async{
+                self.btnImage(name: "Pause")
+            }
 		}
 		if state == "pause" && playerPrepared{
 			self.myMusicPlayer.pause()
-			self.playOrPauseOutLet.setBackgroundImage(UIImage(named:"Play"), for: UIControlState.normal)
+            DispatchQueue.main.async{
+                self.btnImage(name: "Play")
+            }
 		}
+        
+        // activityIndicator to stop animating
+        DispatchQueue.main.async{
+            self.activityIndicator.stopAnimating()
+            UIApplication.shared.endIgnoringInteractionEvents()
+            self.flagLabel.text = ""
+        }
+        
 	}
 	func streamChanged(manager: MusicServiceManager, _ aStream: Stream, handle eventCode: Stream.Event) {
 		

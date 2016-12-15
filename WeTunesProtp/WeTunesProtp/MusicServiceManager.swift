@@ -17,12 +17,17 @@ protocol MusicServiceManagerDelegate {
 	func stateReceived(manager: MusicServiceManager, state: String)
 }
 
-
-
 class MusicServiceManager: NSObject {
 // MARK: - Variables
 	private let MusicServiceType = "WeTunes-Music"
-	private let myPeerId = MCPeerID(displayName: UIDevice.current.name)
+    
+//    static var num = 0
+    public static let sharedInstance:MusicServiceManager = MusicServiceManager()
+    // MCPeerId uses displayName as its unique ID !
+    // But currently name of devices can be duplicated
+    let myPeerId = MCPeerID(displayName: UIDevice.current.name)
+    
+    
 	private let serviceAdvertiser: MCNearbyServiceAdvertiser
 	private let serviceBrowser: MCNearbyServiceBrowser
 	var delegate: MusicServiceManagerDelegate?
@@ -34,6 +39,8 @@ class MusicServiceManager: NSObject {
 	var transferingStatus = [Bool]()
 // MARK: - Functions
 	override init() {
+//        MusicServiceManager.num += 1
+//        print("number of manager: \(MusicServiceManager.num)")
 		serviceAdvertiser = MCNearbyServiceAdvertiser(peer: myPeerId, discoveryInfo: nil, serviceType: MusicServiceType)
 		serviceBrowser = MCNearbyServiceBrowser(peer: myPeerId, serviceType: MusicServiceType)
 		super.init()
@@ -42,6 +49,7 @@ class MusicServiceManager: NSObject {
 		serviceBrowser.delegate = self
 		serviceBrowser.startBrowsingForPeers()
 	}
+    
 	
 	deinit {
 		self.session.disconnect()
@@ -72,6 +80,7 @@ class MusicServiceManager: NSObject {
 			}
 		}
 	}
+    
 	func sendMediaItem(item: MPMediaItem) {
 		print("sendData")
 		if session.connectedPeers.count > 0 {
@@ -225,12 +234,20 @@ extension MusicServiceManager: MCNearbyServiceBrowserDelegate {
 	}
 	func browser(_ browser: MCNearbyServiceBrowser, foundPeer peerID: MCPeerID, withDiscoveryInfo info: [String : String]?) {
 		print("foundPeer: \(peerID)")
-		print("invitePeer: \(peerID)")
-		browser.invitePeer(peerID, to: self.session, withContext: nil, timeout: 10)//invite found device automatically
+		print("invitePeer: \(myPeerId)")
+//        print(peerID.isEqual(myPeerId))
+//        if peerID.displayName != self.myPeerId.displayName {
+            browser.invitePeer(peerID, to: self.session, withContext: nil, timeout: 10)
+//            //invite found device automatically
+//            print("Try to connecting others")
+//        } else {
+//            print("Bad:yourself!!!!!!!!!")
+//        }
 	}
 	func browser(_ browser: MCNearbyServiceBrowser, lostPeer peerID: MCPeerID) {
 		print("lostPeer: \(peerID)")
 	}
+    
 }
 extension MCSessionState {
 	func stringValue() -> String {
@@ -244,6 +261,7 @@ extension MCSessionState {
 extension MusicServiceManager: MCSessionDelegate {
 	func session(_ session: MCSession, peer peerID: MCPeerID, didChange state: MCSessionState) {
 		print("peer \(peerID) didChangeState: \(state.stringValue())")
+
 		self.delegate?.connectedDevicesChanged(manager: self, connectedDevices: session.connectedPeers.map({$0.displayName}))
 	}
 	func session(_ session: MCSession, didReceive data: Data, fromPeer peerID: MCPeerID) {
@@ -261,6 +279,7 @@ extension MusicServiceManager: MCSessionDelegate {
 			self.delegate?.dataChanged(manager: self, data: data)
 		}
 	}
+    
 	func session(_ session: MCSession, didReceive stream: InputStream, withName streamName: String, fromPeer peerID: MCPeerID) {
 		print("didReceiveStream from \(peerID)")
 		if streamName == "music" {
