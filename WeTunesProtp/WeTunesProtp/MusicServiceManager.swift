@@ -49,6 +49,7 @@ class MusicServiceManager: NSObject {
 		serviceBrowser.delegate = self
 		serviceBrowser.startBrowsingForPeers()
 	}
+    
 	
 	deinit {
 		self.session.disconnect()

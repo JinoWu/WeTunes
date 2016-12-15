@@ -17,7 +17,7 @@ class ViewController: UIViewController {
     
     @IBAction func helpButton(_ sender: Any) {
         // open an Youtube Video as tutorial
-        let url = URL(string : "http://www.youtube.com")
+        let url = URL(string : "https://youtu.be/KQYqj-H6pbs")
         if #available(iOS 10.0, *) {
             UIApplication.shared.open(url!, options: [:])
         } else {

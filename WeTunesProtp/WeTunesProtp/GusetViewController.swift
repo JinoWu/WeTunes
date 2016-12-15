@@ -14,9 +14,9 @@ class GusetViewController: UIViewController, UITableViewDataSource, UITabBarDele
 
     @IBOutlet weak var tableView: UITableView!
     
-    var name = ["Siddharth's Iphone","Jino's Ipad"]
-    var model = ["Iphone 7","Ipad Pro"]
-    var images = [UIImage(named: "iPhone_000000_100"),UIImage(named: "iPad_000000_100")]
+    var name = ["Siddharth's Iphone","Jino's MacBook Pro"]
+    var model = ["Iphone 7","MacBook Pro"]
+    var images = [UIImage(named: "iPhone_000000_100"),UIImage(named: "Mac Client_000000_100")]
     
     @IBAction func joinButton(_ sender: Any) {
     }
