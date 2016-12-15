@@ -31,11 +31,11 @@ class MusicPlayerViewController: UIViewController, UITableViewDataSource, UITabl
     }
     
     @IBAction func connectedDevices(_ sender: Any) {
-        tableView.isHidden = false
-//        tableView.isOpaque = true
-//        tableView.allowsSelection = false
-        tableView.layer.cornerRadius = 10
-        tableView.layer.opacity = 0.9
+        if(tableView.isHidden == true) {
+            tableView.isHidden = false
+        } else{
+            tableView.isHidden = true
+        }
     }
     
     
@@ -140,6 +140,9 @@ class MusicPlayerViewController: UIViewController, UITableViewDataSource, UITabl
         
         // hide tableview on ONLOAD
         tableView.isHidden = true
+        tableView.allowsSelection = false
+        tableView.layer.cornerRadius = 10
+        tableView.layer.opacity = 0.9
     
 		musicService.delegate = self
         if (self.isHost) {
