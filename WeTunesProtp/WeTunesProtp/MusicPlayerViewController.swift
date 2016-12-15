@@ -27,7 +27,7 @@ class MusicPlayerViewController: UIViewController {
 	// MARK: - Variables
 	var myMusicPlayer = AVAudioPlayer()
 	var playerPrepared = false
-	let musicService = MusicServiceManager()
+	let musicService = MusicServiceManager.sharedInstance
 	var song:AVAsset? = nil
 	var songItem:MPMediaItem? = nil
 	var isHolderMode = false
@@ -271,6 +271,15 @@ extension MusicPlayerViewController: MusicServiceManagerDelegate {
 	func dataChanged(manager: MusicServiceManager, data: Data) {
 		isHolderMode=false
 		do{
+            // activityIndicator to start animating
+            DispatchQueue.main.async{
+                self.activityIndicator.startAnimating()
+                self.flagLabel.text = "Receiving music file ...."
+                UIApplication.shared.beginIgnoringInteractionEvents()
+            }
+            print("start animating")
+            
+            
 //            myMusicPlayer = try AVAudioPlayer(contentsOf: URL.init(fileURLWithPath: Bundle.main.path(forResource: "15", ofType: "mp3")!))
 			self.song = musicService.convertDataToAVAsset(data: data)!.0
 			let songurl = musicService.convertDataToAVAsset(data: data)!.1
@@ -280,13 +289,7 @@ extension MusicPlayerViewController: MusicServiceManagerDelegate {
 			let myAudioSession = AVAudioSession.sharedInstance()
 			try myAudioSession.setCategory(AVAudioSessionCategoryPlayback)
             
-            // activityIndicator to start animating
-            DispatchQueue.main.async{
-                self.activityIndicator.startAnimating()
-                self.flagLabel.text = "Receiving music file ...."
-                UIApplication.shared.beginIgnoringInteractionEvents()
-            }
-            print("start animating")
+
 		}catch let error {
 			print(error)
 		}
@@ -320,6 +323,7 @@ extension MusicPlayerViewController: MusicServiceManagerDelegate {
         DispatchQueue.main.async{
             self.activityIndicator.stopAnimating()
             UIApplication.shared.endIgnoringInteractionEvents()
+            self.flagLabel.text = ""
         }
         
 	}
