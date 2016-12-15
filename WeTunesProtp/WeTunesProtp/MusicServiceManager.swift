@@ -15,7 +15,6 @@ protocol MusicServiceManagerDelegate {
 	func dataChanged(manager : MusicServiceManager, data: Data)
 	func streamChanged(manager: MusicServiceManager, _ aStream: Stream, handle eventCode: Stream.Event )
 	func stateReceived(manager: MusicServiceManager, state: String)
-    func showTransferProcessStatus(manager: MusicServiceManager, str:String)
 }
 
 
@@ -272,11 +271,9 @@ extension MusicServiceManager: MCSessionDelegate {
 		}
 	}
 	func session(_ session: MCSession, didFinishReceivingResourceWithName resourceName: String, fromPeer peerID: MCPeerID, at localURL: URL, withError error: Error?) {
-        self.delegate?.showTransferProcessStatus(manager: self,str: "Complete")
 		print("didFinishReceivingResourceWithName")
 	}
 	func session(_ session: MCSession, didStartReceivingResourceWithName resourceName: String, fromPeer peerID: MCPeerID, with progress: Progress) {
-        self.delegate?.showTransferProcessStatus(manager: self,str: "Receiving")
 		print("didStartReceivingResourceWithName")
 	}
 }
